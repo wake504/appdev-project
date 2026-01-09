@@ -1,0 +1,79 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 1) 75%), url('../images/imageBackroundLockers.png');
+  background-size: 100% 100%, cover;
+  background-position: center, top;
+  background-repeat: no-repeat, no-repeat;
+  background-attachment: fixed;
+}
+
+.logo-title {
+  color: #1f3c88;
+  font-size: 4rem;
+  font-weight: 700;
+}
+
+.login-container {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+}
+
+.hero-title {
+  color: #1f3c88;
+  font-size: 2.7rem;
+  font-weight: 700;
+}
+
+.hero-subtitle {
+  color: #6c757d;
+  font-size: 0.95rem;
+}
+
+.step-card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+  padding: 2rem 1.5rem;
+}
+
+.step-number {
+  color: #2f6fdf;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.page-title {
+  color: #37474f;
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.page-description {
+  color: #616161;
+  margin-bottom: 2rem;
+}

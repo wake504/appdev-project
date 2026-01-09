@@ -1,0 +1,32 @@
+C:\Users\krisq\Desktop\appdev project\Appdev Group 8\Appdev Group 8\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\krisq\Desktop\appdev project\Appdev Group 8\Appdev Group 8\bin\Debug\net8.0\appsettings.json
+C:\Users\krisq\Desktop\appdev project\Appdev Group 8\Appdev Group 8\bin\Debug\net8.0\Appdev Group 8.staticwebassets.runtime.json
+C:\Users\krisq\Desktop\appdev project\Appdev Group 8\Appdev Group 8\bin\Debug\net8.0\Appdev Group 8.staticwebassets.endpoints.json
+C:\Users\krisq\Desktop\appdev project\Appdev Group 8\Appdev Group 8\bin\Debug\net8.0\Appdev Group 8.exe
+C:\Users\krisq\Desktop\appdev project\Appdev Group 8\Appdev Group 8\bin\Debug\net8.0\Appdev Group 8.deps.json
+C:\Users\krisq\Desktop\appdev project\Appdev Group 8\Appdev Group 8\bin\Debug\net8.0\Appdev Group 8.runtimeconfig.json
+C:\Users\krisq\Desktop\appdev project\Appdev Group 8\Appdev Group 8\bin\Debug\net8.0\Appdev Group 8.dll
+C:\Users\krisq\Desktop\appdev project\Appdev Group 8\Appdev Group 8\bin\Debug\net8.0\Appdev Group 8.pdb
+C:\Users\krisq\Desktop\appdev project\Appdev Group 8\Appdev Group 8\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Users\krisq\Desktop\appdev project\Appdev Group 8\Appdev Group 8\obj\Debug\net8.0\Appdev Group 8.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\krisq\Desktop\appdev project\Appdev Group 8\Appdev Group 8\obj\Debug\net8.0\Appdev Group 8.AssemblyInfoInputs.cache
+C:\Users\krisq\Desktop\appdev project\Appdev Group 8\Appdev Group 8\obj\Debug\net8.0\Appdev Group 8.AssemblyInfo.cs
+C:\Users\krisq\Desktop\appdev project\Appdev Group 8\Appdev Group 8\obj\Debug\net8.0\Appdev Group 8.csproj.CoreCompileInputs.cache
+C:\Users\krisq\Desktop\appdev project\Appdev Group 8\Appdev Group 8\obj\Debug\net8.0\Appdev Group 8.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\krisq\Desktop\appdev project\Appdev Group 8\Appdev Group 8\obj\Debug\net8.0\Appdev Group 8.RazorAssemblyInfo.cache
+C:\Users\krisq\Desktop\appdev project\Appdev Group 8\Appdev Group 8\obj\Debug\net8.0\Appdev Group 8.RazorAssemblyInfo.cs
+C:\Users\krisq\Desktop\appdev project\Appdev Group 8\Appdev Group 8\obj\Debug\net8.0\rjimswa.dswa.cache.json
+C:\Users\krisq\Desktop\appdev project\Appdev Group 8\Appdev Group 8\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+C:\Users\krisq\Desktop\appdev project\Appdev Group 8\Appdev Group 8\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+C:\Users\krisq\Desktop\appdev project\Appdev Group 8\Appdev Group 8\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\krisq\Desktop\appdev project\Appdev Group 8\Appdev Group 8\obj\Debug\net8.0\scopedcss\bundle\Appdev Group 8.styles.css
+C:\Users\krisq\Desktop\appdev project\Appdev Group 8\Appdev Group 8\obj\Debug\net8.0\scopedcss\projectbundle\Appdev Group 8.bundle.scp.css
+C:\Users\krisq\Desktop\appdev project\Appdev Group 8\Appdev Group 8\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\krisq\Desktop\appdev project\Appdev Group 8\Appdev Group 8\obj\Debug\net8.0\staticwebassets.build.json.cache
+C:\Users\krisq\Desktop\appdev project\Appdev Group 8\Appdev Group 8\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\krisq\Desktop\appdev project\Appdev Group 8\Appdev Group 8\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\krisq\Desktop\appdev project\Appdev Group 8\Appdev Group 8\obj\Debug\net8.0\Appdev Group 8.dll
+C:\Users\krisq\Desktop\appdev project\Appdev Group 8\Appdev Group 8\obj\Debug\net8.0\refint\Appdev Group 8.dll
+C:\Users\krisq\Desktop\appdev project\Appdev Group 8\Appdev Group 8\obj\Debug\net8.0\Appdev Group 8.pdb
+C:\Users\krisq\Desktop\appdev project\Appdev Group 8\Appdev Group 8\obj\Debug\net8.0\Appdev Group 8.genruntimeconfig.cache
+C:\Users\krisq\Desktop\appdev project\Appdev Group 8\Appdev Group 8\obj\Debug\net8.0\ref\Appdev Group 8.dll
