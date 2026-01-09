@@ -23,6 +23,11 @@ namespace Appdev_Group_8.Controllers
             return View();
         }
 
+        public IActionResult AdminLogin()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

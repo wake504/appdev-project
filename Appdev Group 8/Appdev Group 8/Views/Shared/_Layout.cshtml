@@ -11,28 +11,14 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Lost&Logged</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Dashboard">Dashboard</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Items" asp-action="ReportLostItem">Report Item</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Items" asp-action="ViewFoundItems">Found Items</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Items" asp-action="MyReports">My Reports</a>
-                        </li>
-                    </ul>
+        <nav class="navbar navbar-light bg-transparent">
+            <div class="container">
+                <a asp-action="Index" asp-controller="Home" class="navbar-brand" style="font-size: 1.75rem; font-weight: 600; color: #37474f; text-decoration: none;">Lost&Logged</a>
+                <div>
+                    <a asp-area="" asp-controller="Home" asp-action="Dashboard" class="text-decoration-none me-3 text-secondary">Dashboard</a>
+                    <a asp-area="" asp-controller="Items" asp-action="ReportLostItem" class="text-decoration-none me-3 text-secondary">Report Item</a>
+                    <a asp-area="" asp-controller="Items" asp-action="ViewFoundItems" class="text-decoration-none me-3 text-secondary">View Found Items</a>
+                    <a asp-area="" asp-controller="Items" asp-action="MyReports" class="text-decoration-none text-secondary">My Reports</a>
                 </div>
             </div>
         </nav>

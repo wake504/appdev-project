@@ -30,3 +30,4 @@ C:\Users\krisq\Desktop\appdev project\Appdev Group 8\Appdev Group 8\obj\Debug\ne
 C:\Users\krisq\Desktop\appdev project\Appdev Group 8\Appdev Group 8\obj\Debug\net8.0\Appdev Group 8.pdb
 C:\Users\krisq\Desktop\appdev project\Appdev Group 8\Appdev Group 8\obj\Debug\net8.0\Appdev Group 8.genruntimeconfig.cache
 C:\Users\krisq\Desktop\appdev project\Appdev Group 8\Appdev Group 8\obj\Debug\net8.0\ref\Appdev Group 8.dll
+C:\Users\krisq\Desktop\appdev project\Appdev Group 8\Appdev Group 8\obj\Debug\net8.0\Appdev Group 8.sourcelink.json

@@ -1,5 +1,5 @@
-﻿@{
-    ViewData["Title"] = "Lost&Logged | Login";
+@{
+    ViewData["Title"] = "Lost&Logged | Admin Login";
 }
 
 <div class="d-flex align-items-center justify-content-center vh-100">
@@ -8,21 +8,27 @@
             <div class="col-md-5 col-lg-4">
 
                 <!-- App Title -->
-                <h3 class="text-center mb-4 fw-bold logo-title">
+                <h3 class="text-center mb-2 fw-bold logo-title">
                     Lost&Logged
                 </h3>
 
-                <!-- Login Card -->
+                <!-- Admin Login Heading -->
+                <h5 class="text-center mb-3 fw-semibold text-secondary">
+                    Admin Login
+                </h5>
+
+                <!-- Description -->
+                <p class="text-center text-muted small mb-4">
+                    Authorized staff only. Please enter your credentials to access the admin dashboard.
+                </p>
+
+                <!-- Admin Login Card -->
                 <div class="card border-0 shadow">
                     <div class="card-body p-4">
 
-                        <h6 class="text-center mb-4 fw-semibold text-secondary">
-                            User Login
-                        </h6>
-
                         <!-- Username -->
                         <div class="mb-3">
-                            <label class="form-label small text-muted">User Login</label>
+                            <label class="form-label small text-muted">Username</label>
                             <div class="input-group">
                                 <span class="input-group-text bg-white">
                                     <i class="bi bi-person-fill text-primary"></i>
@@ -50,19 +56,11 @@
                         </div>
 
                         <!-- Login Button -->
-                        <div class="d-grid mb-2">
+                        <div class="d-grid">
                             <button class="btn btn-primary">
                                 <i class="bi bi-box-arrow-in-right me-1"></i>
-                                Login
+                                Admin Login
                             </button>
-                        </div>
-
-                        <!-- Admin Login -->
-                        <div class="d-grid">
-                            <a asp-action="AdminLogin" asp-controller="Home" class="btn btn-outline-primary btn-sm">
-                                <i class="bi bi-shield-lock-fill me-1"></i>
-                                Login as Admin
-                            </a>
                         </div>
 
                     </div>
