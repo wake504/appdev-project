@@ -28,6 +28,53 @@ namespace Appdev_Group_8.Controllers
             return View();
         }
 
+        public IActionResult AdminDashboard()
+        {
+            return View();
+        }
+
+        public IActionResult ManageLostReports()
+        {
+            return View();
+        }
+
+        public IActionResult ManageFoundItems()
+        {
+            return View();
+        }
+
+        public IActionResult AdminReports()
+        {
+            return View();
+        }
+
+        public IActionResult AddFoundItem()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult SubmitFoundItem(string itemName, string dateFound, string locationFound, string description)
+        {
+            // Process the found item here
+            _logger.LogInformation($"Found item added: {itemName}");
+            
+            // Redirect to Manage Found Items
+            return RedirectToAction("ManageFoundItems");
+        }
+
+        public IActionResult AllReports()
+        {
+            return View();
+        }
+
+        public IActionResult Logout()
+        {
+            // Log the user out and redirect to login page
+            _logger.LogInformation("Admin user logged out");
+            return RedirectToAction("Index");
+        }
+
         public IActionResult Privacy()
         {
             return View();

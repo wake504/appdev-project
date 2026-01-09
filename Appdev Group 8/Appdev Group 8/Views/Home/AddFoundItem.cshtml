@@ -1,0 +1,190 @@
+@{
+    ViewData["Title"] = "Add Found Item";
+}
+
+<style>
+    .admin-nav {
+        border-bottom: 3px solid #e0e0e0;
+        padding: 1rem 0;
+        margin-bottom: 2rem;
+    }
+
+    .admin-nav a {
+        color: #616161;
+        text-decoration: none;
+        margin-right: 2rem;
+        font-weight: 500;
+        font-size: 0.95rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 3px solid transparent;
+    }
+
+    .admin-nav a.active {
+        color: #1976d2;
+        border-bottom: 3px solid #1976d2;
+    }
+
+    .admin-nav a:hover {
+        color: #1976d2;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+        font-weight: 600;
+        color: #37474f;
+        margin-bottom: 0.5rem;
+    }
+
+    .section-description {
+        color: #616161;
+        margin-bottom: 2rem;
+    }
+
+    .form-container {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        padding: 2rem;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .form-container h5 {
+        color: #37474f;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+        font-weight: 500;
+        color: #424242;
+        margin-bottom: 0.5rem;
+    }
+
+    .form-control, .form-select {
+        border-color: #ddd;
+        border-radius: 5px;
+    }
+
+    .form-control:focus, .form-select:focus {
+        border-color: #1976d2;
+        box-shadow: 0 0 0 0.2rem rgba(25, 118, 210, 0.25);
+    }
+
+    textarea.form-control {
+        resize: vertical;
+        min-height: 120px;
+    }
+
+    .btn-add {
+        background-color: #1976d2;
+        border-color: #1976d2;
+        color: white;
+        padding: 0.75rem 2rem;
+    }
+
+    .btn-add:hover {
+        background-color: #1565c0;
+        border-color: #1565c0;
+        color: white;
+    }
+
+    .btn-cancel {
+        background-color: #e0e0e0;
+        border-color: #e0e0e0;
+        color: #424242;
+        padding: 0.75rem 2rem;
+    }
+
+    .btn-cancel:hover {
+        background-color: #d5d5d5;
+        border-color: #d5d5d5;
+        color: #424242;
+    }
+
+    .button-group {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+    }
+</style>
+
+<div class="container">
+    <!-- Admin Navigation -->
+    <div class="admin-nav">
+        <a asp-action="AdminDashboard" asp-controller="Home" class="active">Admin Dashboard</a>
+        <a asp-action="ManageLostReports" asp-controller="Home">Manage Lost Reports</a>
+        <a asp-action="ManageFoundItems" asp-controller="Home">Manage Found Items</a>
+        <a asp-action="AdminReports" asp-controller="Home">Admin Reports</a>
+        <a asp-action="Logout" asp-controller="Home" class="ms-auto">Logout</a>
+    </div>
+
+    <!-- Page Title and Description -->
+    <h2 class="section-title">Add Found Item</h2>
+    <p class="section-description">
+        Use the form below to report a found item.
+    </p>
+
+    <!-- Form Container -->
+    <div class="form-container">
+        <h5>Add Found Item</h5>
+
+        <form method="post" asp-action="SubmitFoundItem" enctype="multipart/form-data">
+            <!-- Item Name -->
+            <div class="form-group">
+                <label class="form-label">Item Name</label>
+                <input type="text" class="form-control" name="itemName" placeholder="Enter item name..." required>
+            </div>
+
+            <!-- Date Found -->
+            <div class="form-group">
+                <label class="form-label">Date Found</label>
+                <input type="date" class="form-control" name="dateFound" value="@DateTime.Now.ToString("yyyy-MM-dd")" required>
+            </div>
+
+            <!-- Location Found -->
+            <div class="form-group">
+                <label class="form-label">Location Found</label>
+                <input type="text" class="form-control" name="locationFound" placeholder="Enter location where item was found..." required>
+            </div>
+
+            <!-- Description -->
+            <div class="form-group">
+                <label class="form-label">Description</label>
+                <textarea class="form-control" name="description" placeholder="Enter a description of the found item..."></textarea>
+            </div>
+
+            <!-- Upload Image -->
+            <div class="form-group">
+                <label class="form-label">Upload Image</label>
+                <div class="input-group">
+                    <input type="file" class="form-control" name="image" id="imageInput" accept="image/*">
+                </div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="button-group">
+                <button type="submit" class="btn btn-add">
+                    <i class="bi bi-plus-circle me-2"></i>Add Item
+                </button>
+                <a asp-action="ManageFoundItems" asp-controller="Home" class="btn btn-cancel">
+                    Cancel
+                </a>
+            </div>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <div class="text-center" style="color: #757575; font-size: 0.875rem; margin-top: 3rem; margin-bottom: 2rem;">
+        © 2025 Lost&Logged. For academic use only.
+    </div>
+</div>
+
+@section Scripts {
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+}

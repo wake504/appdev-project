@@ -1,0 +1,269 @@
+@{
+    ViewData["Title"] = "Admin Reports";
+}
+
+<style>
+    .admin-nav {
+        border-bottom: 3px solid #e0e0e0;
+        padding: 1rem 0;
+        margin-bottom: 2rem;
+    }
+
+    .admin-nav a {
+        color: #616161;
+        text-decoration: none;
+        margin-right: 2rem;
+        font-weight: 500;
+        font-size: 0.95rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 3px solid transparent;
+    }
+
+    .admin-nav a.active {
+        color: #1976d2;
+        border-bottom: 3px solid #1976d2;
+    }
+
+    .admin-nav a:hover {
+        color: #1976d2;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+        font-weight: 600;
+        color: #37474f;
+        margin-bottom: 0.5rem;
+    }
+
+    .section-description {
+        color: #616161;
+        margin-bottom: 2rem;
+    }
+
+    .form-section {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        padding: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .form-section h5 {
+        color: #37474f;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+        font-weight: 500;
+        color: #424242;
+        margin-bottom: 0.5rem;
+    }
+
+    .form-control, .form-select {
+        border-color: #ddd;
+    }
+
+    .form-control:focus, .form-select:focus {
+        border-color: #1976d2;
+        box-shadow: 0 0 0 0.2rem rgba(25, 118, 210, 0.25);
+    }
+
+    .btn-generate {
+        background-color: #1976d2;
+        border-color: #1976d2;
+        color: white;
+        padding: 0.75rem 2rem;
+        width: 100%;
+    }
+
+    .btn-generate:hover {
+        background-color: #1565c0;
+        border-color: #1565c0;
+    }
+
+    .content-container {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        padding: 2rem;
+    }
+
+    .table {
+        margin-bottom: 0;
+    }
+
+    .table thead th {
+        background-color: #f5f5f5;
+        color: #424242;
+        font-weight: 600;
+        border-bottom: 2px solid #e0e0e0;
+        padding: 0.75rem;
+    }
+
+    .table tbody tr {
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .table tbody tr:hover {
+        background-color: #f9f9f9;
+    }
+
+    .table tbody td {
+        padding: 0.75rem;
+        color: #424242;
+        vertical-align: middle;
+    }
+
+    .item-link {
+        color: #1976d2;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .item-link:hover {
+        text-decoration: underline;
+    }
+
+    .sortable {
+        cursor: pointer;
+        user-select: none;
+    }
+
+    .sortable::after {
+        content: ' ⇅';
+        color: #999;
+        font-size: 0.875rem;
+    }
+
+    .pagination-info {
+        color: #616161;
+        font-size: 0.875rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .pagination .page-link {
+        color: #424242;
+        border: 1px solid #dee2e6;
+    }
+
+    .pagination .page-item.active .page-link {
+        background-color: #1976d2;
+        border-color: #1976d2;
+    }
+</style>
+
+<div class="container">
+    <!-- Admin Navigation -->
+    <div class="admin-nav">
+        <a asp-action="AdminDashboard" asp-controller="Home">Admin Dashboard</a>
+        <a asp-action="ManageLostReports" asp-controller="Home">Manage Lost Reports</a>
+        <a asp-action="ManageFoundItems" asp-controller="Home">Manage Found Items</a>
+        <a href="#" class="active">Admin Reports</a>
+        <a asp-action="Logout" asp-controller="Home" class="ms-auto">Logout</a>
+    </div>
+
+    <!-- Page Title and Description -->
+    <h2 class="section-title">Admin Reports</h2>
+    <p class="section-description">
+        Generate reports on lost and found items. Choose the type, date range, and export your results.
+    </p>
+
+    <!-- Generate Report Section -->
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="form-section">
+                <h5>Generate Report</h5>
+
+                <div class="form-group">
+                    <label class="form-label">Report Type</label>
+                    <select class="form-select">
+                        <option selected>Lost Items</option>
+                        <option>Found Items</option>
+                        <option>Lost & Found Summary</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Date Range</label>
+                    <div class="row g-2">
+                        <div class="col-md-5">
+                            <input type="date" class="form-control" value="2025-04-01">
+                        </div>
+                        <div class="col-md-1 d-flex align-items-center justify-content-center">
+                            <span>-</span>
+                        </div>
+                        <div class="col-md-5">
+                            <input type="date" class="form-control" value="2025-04-23">
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn btn-generate">Generate Report</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Reports Section -->
+    <h5 style="color: #37474f; font-weight: 600; margin-bottom: 1rem; margin-top: 2rem;">Recent Reports</h5>
+
+    <div class="content-container">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="sortable">Report Type</th>
+                        <th class="sortable">Date Range</th>
+                        <th class="sortable">Exported By</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="#" class="item-link">Found Items</a></td>
+                        <td>04/01/2025 - 04/20/2025</td>
+                        <td>Admin</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" class="item-link">Lost Items</a></td>
+                        <td>04/01/2025 - 04/15/2025</td>
+                        <td>Admin</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" class="item-link">Lost & Found Summary</a></td>
+                        <td>04/01/2025 - 04/10/2025</td>
+                        <td>Admin</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination-info">
+            Showing 1 to 3 of 3 reports
+        </div>
+        <nav>
+            <ul class="pagination">
+                <li class="page-item active">
+                    <a class="page-link" href="#">1</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Footer -->
+    <div class="text-center" style="color: #757575; font-size: 0.875rem; margin-top: 3rem; margin-bottom: 2rem;">
+        © 2025 Lost&Logged. For academic use only.
+    </div>
+</div>
+
+@section Scripts {
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+}
