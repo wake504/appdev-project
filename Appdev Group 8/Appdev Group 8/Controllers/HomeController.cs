@@ -25,27 +25,27 @@ namespace Appdev_Group_8.Controllers
 
         public IActionResult AdminLogin()
         {
-            return View();
+            return View("~/Views/Admin/AdminLogin.cshtml");
         }
 
         public IActionResult AdminDashboard()
         {
-            return View();
+            return View("~/Views/Admin/AdminDashboard.cshtml");
         }
 
         public IActionResult ManageLostReports()
         {
-            return View();
+            return View("~/Views/Admin/ManageLostReports.cshtml");
         }
 
         public IActionResult ManageFoundItems()
         {
-            return View();
+            return View("~/Views/Admin/ManageFoundItems.cshtml");
         }
 
         public IActionResult AdminReports()
         {
-            return View();
+            return View("~/Views/Admin/AdminReports.cshtml");
         }
 
         public IActionResult AddFoundItem()
@@ -65,7 +65,7 @@ namespace Appdev_Group_8.Controllers
 
         public IActionResult AllReports()
         {
-            return View();
+            return View("~/Views/Admin/AllReports.cshtml");
         }
 
         public IActionResult Logout()
