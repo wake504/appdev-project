@@ -2,35 +2,40 @@
     ViewData["Title"] = "Lost&Logged | Dashboard";
 }
 
-<div class="container text-center mt-5">
-    <h1 class="hero-title mb-2">Lost&Logged</h1>
-    <p class="hero-subtitle mb-4">A simple lost and found management system for schools and offices.</p>
+<div class="dashboard-container">
+    <div class="container text-center">
+        <h1 class="hero-title mb-2">Lost&Logged</h1>
+        <p class="hero-subtitle mb-4">A simple lost and found management system for schools and offices.</p>
 
-    <div class="d-flex justify-content-center gap-3 mb-5">
-        <a asp-controller="Items" asp-action="ReportItem" class="btn btn-primary px-4">Report Lost Item</a>
-        <a asp-controller="Items" asp-action="MyReports" class="btn btn-secondary px-4">My Reports</a>
-        <a asp-controller="Items" asp-action="ViewItems" class="btn btn-outline-secondary px-4">View All Reports</a>
-    </div>
-
-    <h5 class="how-title mb-4">How It Works</h5>
-
-    <div class="row justify-content-center g-4">
-        <div class="col-md-4">
-            <div class="card step-card h-100 text-center">
-                <h6 class="step-number">1. Report</h6>
-                <p class="small text-muted">Submit details about the item you lost.</p>
-            </div>
+        <div class="d-flex justify-content-center gap-3 mb-5">
+            <a asp-controller="Items" asp-action="ReportItem" class="btn btn-primary px-4">Report Lost Item</a>
+            <a asp-controller="Items" asp-action="MyReports" class="btn btn-secondary px-4">My Reports</a>
+            <a asp-controller="Items" asp-action="ViewItems" class="btn btn-outline-secondary px-4">View All Reports</a>
         </div>
-        <div class="col-md-4">
-            <div class="card step-card h-100 text-center">
-                <h6 class="step-number">2. Monitor</h6>
-                <p class="small text-muted">Check the system regularly for updates on your report.</p>
+
+        <h5 class="how-title mb-4">How It Works</h5>
+
+        <div class="row justify-content-center g-4">
+            <div class="col-md-4">
+                <div class="card step-card h-100 text-center">
+                    <img src="~/images/step-report.png" alt="Report" class="img-fluid mb-2" style="max-height: 60px; object-fit: contain;">
+                    <h6 class="step-number">1. Report</h6>
+                    <p class="small text-muted">Submit details about the item you lost.</p>
+                </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card step-card h-100 text-center">
-                <h6 class="step-number">3. Claim</h6>
-                <p class="small text-muted">Visit the office to claim your found item.</p>
+            <div class="col-md-4">
+                <div class="card step-card h-100 text-center">
+                    <img src="~/images/step-monitor.png" alt="Monitor" class="img-fluid mb-2" style="max-height: 60px; object-fit: contain;">
+                    <h6 class="step-number">2. Monitor</h6>
+                    <p class="small text-muted">Check the system regularly for updates on your report.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card step-card h-100 text-center">
+                    <img src="~/images/step-claim.png" alt="Claim" class="img-fluid mb-2" style="max-height: 60px; object-fit: contain;">
+                    <h6 class="step-number">3. Claim</h6>
+                    <p class="small text-muted">Visit the office to claim your found item.</p>
+                </div>
             </div>
         </div>
     </div>

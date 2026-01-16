@@ -24,80 +24,90 @@
 }
 else
 {
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Claim ID</th>
-                <th>Item</th>
-                <th>Item Type</th>
-                <th>Claimed By</th>
-                <th>Requested</th>
-                <th>Status</th>
-                <th>Collection Location</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var c in Model)
-            {
-                <tr>
-                    <td>@c.ClaimId</td>
-                    <td>@c.Item?.Title</td>
-                    <td>
-                        <span class="badge bg-@(c.Item?.ItemType == ItemType.Lost ? "danger" : "success")">
-                            @c.Item?.ItemType
-                        </span>
-                    </td>
-                    <td>@c.ClaimingUser?.FullName</td>
-                    <td>@c.ClaimDate.ToLocalTime().ToString("yyyy-MM-dd HH:mm")</td>
-                    <td>
-                        <span class="badge bg-@(c.ClaimStatus == ClaimStatus.Approved ? "success" : c.ClaimStatus == ClaimStatus.Rejected ? "danger" : c.ClaimStatus == ClaimStatus.ItemCollected ? "secondary" : "warning")">
-                            @c.ClaimStatus
-                        </span>
-                    </td>
-                    <td>
-                        @if (!string.IsNullOrEmpty(c.CollectionLocation))
-                        {
-                            <small>📍 @c.CollectionLocation</small>
-                        }
-                        else
-                        {
-                            <span class="text-muted">-</span>
-                        }
-                    </td>
-                    <td>
-                        @if (c.ClaimStatus == ClaimStatus.PendingApproval)
-                        {
-                            <form asp-controller="Admin" asp-action="ApproveClaim" method="post" class="d-inline">
-                                @Html.AntiForgeryToken()
-                                <input type="hidden" name="claimId" value="@c.ClaimId" />
-                                <input type="text" name="collectionLocation" placeholder="Collection location" value="Security Office, Main Building" class="form-control form-control-sm mb-1" />
-                                <textarea name="verificationNotes" placeholder="Verification notes" class="form-control form-control-sm mb-1" rows="2"></textarea>
-                                <button type="submit" class="btn btn-sm btn-success">Approve</button>
-                            </form>
+    <div class="table-container">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Claim ID</th>
+                        <th>Item</th>
+                        <th>Item Type</th>
+                        <th>Claimed By</th>
+                        <th>Requested</th>
+                        <th>Status</th>
+                        <th>Collection Location</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var c in Model)
+                    {
+                        <tr>
+                            <td>@c.ClaimId</td>
+                            <td>@c.Item?.Title</td>
+                            <td>
+                                <span class="badge badge-bordered @(c.Item?.ItemType == ItemType.Lost ? "border-lost" : "border-found")">
+                                    @c.Item?.ItemType
+                                </span>
+                            </td>
+                            <td>@c.ClaimingUser?.FullName</td>
+                            <td>@c.ClaimDate.ToLocalTime().ToString("yyyy-MM-dd HH:mm")</td>
+                            <td>
+                                <span class="badge badge-bordered @(c.ClaimStatus == ClaimStatus.Approved ? "border-approved" : c.ClaimStatus == ClaimStatus.Rejected ? "border-rejected" : c.ClaimStatus == ClaimStatus.ItemCollected ? "border-collected" : "border-pending")">
+                                    @c.ClaimStatus
+                                </span>
+                            </td>
+                            <td>
+                                @if (!string.IsNullOrEmpty(c.CollectionLocation))
+                                {
+                                    <small>📍 @c.CollectionLocation</small>
+                                }
+                                else
+                                {
+                                    <span class="text-muted">-</span>
+                                }
+                            </td>
+                            <td>
+                                @if (c.ClaimStatus == ClaimStatus.PendingApproval)
+                                {
+                                    <form asp-controller="Admin" asp-action="ApproveClaim" method="post" class="d-inline">
+                                        @Html.AntiForgeryToken()
+                                        <input type="hidden" name="claimId" value="@c.ClaimId" />
+                                        <input type="text" name="collectionLocation" placeholder="Collection location" value="Security Office, Main Building" class="form-control form-control-sm mb-1" />
+                                        <textarea name="verificationNotes" placeholder="Verification notes" class="form-control form-control-sm mb-1" rows="2"></textarea>
+                                        <button type="submit" class="btn btn-sm btn-primary">Approve</button>
+                                    </form>
 
-                            <form asp-controller="Admin" asp-action="RejectClaim" method="post" class="d-inline ms-1">
-                                @Html.AntiForgeryToken()
-                                <input type="hidden" name="claimId" value="@c.ClaimId" />
-                                <button type="submit" class="btn btn-sm btn-danger">Reject</button>
-                            </form>
-                        }
-                        else if (c.ClaimStatus == ClaimStatus.Approved)
-                        {
-                            <form asp-controller="Admin" asp-action="MarkAsCollected" method="post" class="d-inline">
-                                @Html.AntiForgeryToken()
-                                <input type="hidden" name="claimId" value="@c.ClaimId" />
-                                <button type="submit" class="btn btn-sm btn-primary">Mark as Collected</button>
-                            </form>
-                        }
-                        else if (c.ClaimStatus == ClaimStatus.ItemCollected)
-                        {
-                            <small class="text-muted">✓ Collected on @c.CollectionDate?.ToLocalTime().ToString("yyyy-MM-dd")</small>
-                        }
-                        else
-                        {
-                            <span class="text-muted">No action available</span>
-                        }
+                                    <form asp-controller="Admin" asp-action="RejectClaim" method="post" class="d-inline ms-1">
+                                        @Html.AntiForgeryToken()
+                                        <input type="hidden" name="claimId" value="@c.ClaimId" />
+                                        <button type="submit" class="btn btn-sm btn-outline-secondary">Reject</button>
+                                    </form>
+                                }
+                                else if (c.ClaimStatus == ClaimStatus.Approved)
+                                {
+                                    <form asp-controller="Admin" asp-action="MarkAsCollected" method="post" class="d-inline">
+                                        @Html.AntiForgeryToken()
+                                        <input type="hidden" name="claimId" value="@c.ClaimId" />
+                                        <button type="submit" class="btn btn-sm btn-primary">Mark as Collected</button>
+                                    </form>
+                                }
+                                else if (c.ClaimStatus == ClaimStatus.ItemCollected)
+                                {
+                                    <small class="text-muted">✓ Collected on @c.CollectionDate?.ToLocalTime().ToString("yyyy-MM-dd")</small>
+                                }
+                                else
+                                {
+                                    <span class="text-muted">No action available</span>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
                     </td>
                 </tr>
             }

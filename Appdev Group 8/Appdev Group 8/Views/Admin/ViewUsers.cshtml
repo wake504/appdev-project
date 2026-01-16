@@ -16,23 +16,25 @@
 }
 else
 {
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>Full Name</th>
-                <th>Email / SchoolID</th>
-                <th>Role</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var u in Model)
-            {
+    <div class="table-container">
+        <table class="table table-hover">
+            <thead>
                 <tr>
-                    <td>@u.FullName</td>
-                    <td>@(u.Email ?? u.SchoolId)</td>
-                    <td>@u.Role</td>
+                    <th>Full Name</th>
+                    <th>Email / SchoolID</th>
+                    <th>Role</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var u in Model)
+                {
+                    <tr>
+                        <td>@u.FullName</td>
+                        <td>@(u.Email ?? u.SchoolId)</td>
+                        <td>@u.Role</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 }

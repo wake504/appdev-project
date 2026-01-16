@@ -9,7 +9,51 @@ html {
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #800000;
+}
+
+/* Button Styling */
+.btn-primary {
+  background-color: #800000;
+  border-color: #800000;
+  color: #FFFFFF;
+  font-weight: 500;
+  border-radius: 6px;
+  padding: 0.5rem 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #600000;
+  border-color: #600000;
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(128, 0, 0, 0.3);
+}
+
+.btn-primary:active {
+  background-color: #500000;
+  border-color: #500000;
+}
+
+.btn-secondary {
+  background-color: #FFFFFF;
+  border-color: #800000;
+  color: #800000;
+  font-weight: 500;
+  border-radius: 6px;
+  padding: 0.5rem 1.5rem;
+}
+
+.btn-secondary:hover {
+  background-color: #f5f5f5;
+  border-color: #800000;
+  color: #600000;
+}
+
+.btn {
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
 
 html {
@@ -20,15 +64,16 @@ html {
 body {
   margin-bottom: 60px;
   font-family: 'Arial', sans-serif;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 1) 75%), url('../images/imageBackroundLockers.png');
-  background-size: 100% 100%, cover;
+ background: url('../images/BackroundPylon.png') no-repeat center center;
+background-size: cover;
+
   background-position: center, top;
   background-repeat: no-repeat, no-repeat;
   background-attachment: fixed;
 }
 
 .logo-title {
-  color: #1f3c88;
+  color: #800000;
   font-size: 4rem;
   font-weight: 700;
 }
@@ -43,7 +88,7 @@ body {
 }
 
 .hero-title {
-  color: #1f3c88;
+  color: #800000;
   font-size: 2.7rem;
   font-weight: 700;
 }
@@ -61,7 +106,7 @@ body {
 }
 
 .step-number {
-  color: #2f6fdf;
+  color: #800000;
   font-weight: 600;
   margin-top: 1rem;
 }
@@ -76,4 +121,72 @@ body {
 .page-description {
   color: #616161;
   margin-bottom: 2rem;
+}
+
+/* Dashboard and Container Styles */
+.dashboard-container {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.table-container {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btn-outline-secondary {
+  color: #800000;
+  border-color: #800000;
+  font-weight: 500;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #800000;
+  border-color: #800000;
+  color: #FFFFFF;
+}
+
+/* Bordered Badge Styles */
+.badge-bordered {
+  background-color: transparent !important;
+  border: 2px solid;
+  color: #37474f;
+  font-weight: 500;
+  padding: 0.5rem 0.75rem;
+}
+
+.badge-bordered.border-lost {
+  border-color: #dc3545;
+  color: #dc3545;
+}
+
+.badge-bordered.border-found {
+  border-color: #198754;
+  color: #198754;
+}
+
+.badge-bordered.border-approved {
+  border-color: #198754;
+  color: #198754;
+}
+
+.badge-bordered.border-rejected {
+  border-color: #dc3545;
+  color: #dc3545;
+}
+
+.badge-bordered.border-pending {
+  border-color: #ffc107;
+  color: #856404;
+}
+
+.badge-bordered.border-collected {
+  border-color: #6c757d;
+  color: #6c757d;
 }

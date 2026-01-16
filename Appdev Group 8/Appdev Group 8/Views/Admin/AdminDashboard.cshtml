@@ -34,39 +34,41 @@
 }
 else
 {
-    <div class="table-responsive">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Description</th>
-                    <th>Type</th>
-                    <th>Date Found</th>
-                    <th>Location</th>
-                    <th>Reported By</th>
-                    <th>Category</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
+    <div class="table-container">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
                     <tr>
-                        <td>@item.Title</td>
-                        <td>@(string.IsNullOrWhiteSpace(item.Description) ? "-" : item.Description)</td>
-                        <td>@item.ItemType</td>
-                        <td>
-                            @(item.DateLostOrFound.HasValue
-                                ? item.DateLostOrFound.Value.ToLocalTime().ToString("yyyy-MM-dd")
-                                : item.DateReported.ToLocalTime().ToString("yyyy-MM-dd"))
-                        </td>
-                        <td>@item.Location</td>
-                        <td>@item.ReportingUser?.FullName</td>
-                        <td>@item.Category?.CategoryName</td>
-                        <td>@item.Status</td>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Type</th>
+                        <th>Date Found</th>
+                        <th>Location</th>
+                        <th>Reported By</th>
+                        <th>Category</th>
+                        <th>Status</th>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Title</td>
+                            <td>@(string.IsNullOrWhiteSpace(item.Description) ? "-" : item.Description)</td>
+                            <td>@item.ItemType</td>
+                            <td>
+                                @(item.DateLostOrFound.HasValue
+                                    ? item.DateLostOrFound.Value.ToLocalTime().ToString("yyyy-MM-dd")
+                                    : item.DateReported.ToLocalTime().ToString("yyyy-MM-dd"))
+                            </td>
+                            <td>@item.Location</td>
+                            <td>@item.ReportingUser?.FullName</td>
+                            <td>@item.Category?.CategoryName</td>
+                            <td>@item.Status</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
 }

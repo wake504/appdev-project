@@ -11,11 +11,17 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-light bg-transparent">
+        <nav class="navbar navbar-light" style="background-color: #800000;">
             <div class="container">
-                <a asp-action="Index" asp-controller="Home" class="navbar-brand" style="font-size: 1.75rem; font-weight: 600; color: #37474f; text-decoration: none;">Lost&Logged</a>
+                <a asp-action="Index" asp-controller="Home" class="navbar-brand" style="font-size: 1.75rem; font-weight: 600; color: #FFFFFF; text-decoration: none;">Lost&Logged</a>
                 <div>
-                    <a asp-area="" asp-controller="Home" asp-action="Index" class="text-decoration-none text-secondary">Log Out</a>
+                    @if (ViewData["Title"] != "Login" && ViewData["Title"] != "Sign Up")
+                    {
+                        <form asp-action="Logout" asp-controller="Home" method="post" style="display: inline;">
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="btn btn-link text-decoration-none" style="color: #FFFFFF; font-weight: 500;">Log Out</button>
+                        </form>
+                    }
                 </div>
             </div>
         </nav>

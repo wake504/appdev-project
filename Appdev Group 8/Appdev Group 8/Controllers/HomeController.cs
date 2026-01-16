@@ -101,6 +101,75 @@ namespace Appdev_Group_8.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        [HttpGet]
+        public IActionResult SignUp()
+        {
+            ModelState.Clear();
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SignUp(string fullName, string email, string schoolId, string password)
+        {
+            // Validation
+            if (string.IsNullOrWhiteSpace(fullName) || string.IsNullOrWhiteSpace(password))
+            {
+                ModelState.AddModelError(string.Empty, "Full name and password are required.");
+                return View();
+            }
+
+            if (string.IsNullOrWhiteSpace(email) && string.IsNullOrWhiteSpace(schoolId))
+            {
+                ModelState.AddModelError(string.Empty, "Either email or school ID is required.");
+                return View();
+            }
+
+            // Check if user already exists
+            var existingUser = await _db.Users.FirstOrDefaultAsync(u => 
+                (u.Email == email && !string.IsNullOrWhiteSpace(email)) || 
+                (u.SchoolId == schoolId && !string.IsNullOrWhiteSpace(schoolId)));
+
+            if (existingUser != null)
+            {
+                ModelState.AddModelError(string.Empty, "A user with this email or school ID already exists.");
+                return View();
+            }
+
+            // Create new user with default role = User (0)
+            var newUser = new User
+            {
+                FullName = fullName,
+                Email = string.IsNullOrWhiteSpace(email) ? null : email,
+                SchoolId = string.IsNullOrWhiteSpace(schoolId) ? null : schoolId,
+                Role = UserRole.User // Default role
+            };
+
+            // Hash password
+            newUser.PasswordHash = _passwordHasher.HashPassword(newUser, password);
+
+            _db.Users.Add(newUser);
+            await _db.SaveChangesAsync();
+
+            _logger.LogInformation("New user created: {FullName}", fullName);
+
+            // Automatically sign in the new user
+            var claims = new List<System.Security.Claims.Claim>
+            {
+                new System.Security.Claims.Claim(ClaimTypes.NameIdentifier, newUser.UserId.ToString()),
+                new System.Security.Claims.Claim(ClaimTypes.Name, newUser.FullName),
+                new System.Security.Claims.Claim(ClaimTypes.Role, newUser.Role.ToString())
+            };
+
+            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            var principal = new ClaimsPrincipal(identity);
+
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+            _logger.LogInformation("New user {UserId} signed in", newUser.UserId);
+
+            return RedirectToAction("Dashboard", "Items");
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
