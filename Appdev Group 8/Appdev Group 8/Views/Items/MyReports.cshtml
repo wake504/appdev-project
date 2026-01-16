@@ -1,215 +1,133 @@
+@model IEnumerable<Appdev_Group_8.Models.Item>
+
 @{
     ViewData["Title"] = "My Reports";
 }
 
-<style>
-    .navbar-brand {
-        font-size: 1.75rem;
-        font-weight: 600;
-        color: #37474f !important;
-    }
-    .content-container {
-        background: white;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        padding: 2rem;
-        margin-top: 2rem;
-    }
-    .page-title {
-        color: #37474f;
-        font-size: 1.75rem;
-        font-weight: 600;
-        margin-bottom: 0.75rem;
-    }
-    .page-description {
-        color: #616161;
-        margin-bottom: 2rem;
-    }
-    .search-box {
-        max-width: 300px;
-    }
-    .table {
-        margin-top: 1.5rem;
-    }
-    .table thead th {
-        background-color: #f5f5f5;
-        color: #424242;
-        font-weight: 600;
-        border-bottom: 2px solid #e0e0e0;
-        padding: 0.75rem;
-    }
-    .table tbody tr {
-        border-bottom: 1px solid #e0e0e0;
-    }
-    .table tbody tr:hover {
-        background-color: #f9f9f9;
-    }
-    .table tbody td {
-        padding: 0.75rem;
-        color: #424242;
-        vertical-align: middle;
-    }
-    .item-link {
-        color: #1976d2;
-        text-decoration: none;
-        font-weight: 500;
-    }
-    .item-link:hover {
-        text-decoration: underline;
-    }
-    .sortable {
-        cursor: pointer;
-        user-select: none;
-    }
-    .sortable::after {
-        content: ' ⇅';
-        color: #999;
-        font-size: 0.875rem;
-    }
-    .badge-found {
-        background-color: #4caf50;
-        color: white;
-        padding: 0.35rem 0.75rem;
-        border-radius: 4px;
-        font-size: 0.875rem;
-        font-weight: 500;
-    }
-    .badge-lost {
-        background-color: #e53935;
-        color: white;
-        padding: 0.35rem 0.75rem;
-        border-radius: 4px;
-        font-size: 0.875rem;
-        font-weight: 500;
-    }
-    .badge-unclaimed {
-        background-color: #9e9e9e;
-        color: white;
-        padding: 0.35rem 0.75rem;
-        border-radius: 4px;
-        font-size: 0.875rem;
-        font-weight: 500;
-    }
-    .btn-view-details {
-        background-color: #1976d2;
-        border-color: #1976d2;
-        color: white;
-        padding: 0.35rem 1rem;
-        font-size: 0.875rem;
-    }
-    .btn-view-details:hover {
-        background-color: #1565c0;
-        border-color: #1565c0;
-        color: white;
-    }
-    .pagination-info {
-        color: #616161;
-        font-size: 0.875rem;
-    }
-    .pagination .page-link {
-        color: #424242;
-        border: 1px solid #dee2e6;
-    }
-    .pagination .page-item.active .page-link {
-        background-color: #1976d2;
-        border-color: #1976d2;
-    }
-    .btn-search {
-        background-color: #1976d2;
-        border-color: #1976d2;
-        color: white;
-    }
-    .btn-search:hover {
-        background-color: #1565c0;
-        border-color: #1565c0;
-    }
-</style>
+<h2>My Reports</h2>
 
-<div class="container">
-    <div class="content-container">
-        <div class="d-flex justify-content-between align-items-start mb-3">
-            <div>
-                <h1 class="page-title">My Reports</h1>
-                <p class="page-description">
-                    These are the items you reported as lost. Check the status for updates and visit<br>
-                    the admin office to claim if found.
-                </p>
-            </div>
-            <div class="search-box">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search reports..." id="searchInput">
-                    <button class="btn btn-search" type="button">
-                        <i class="bi bi-search"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div class="table-responsive">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th class="sortable">Item Name</th>
-                        <th class="sortable">Date Lost</th>
-                        <th>Location</th>
-                        <th>Status</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><a href="#" class="item-link">Red Backpack</a></td>
-                        <td>04/20/2025</td>
-                        <td>Building A, Hallway</td>
-                        <td><span class="badge-found">Found</span></td>
-                        <td><button class="btn btn-view-details">View Details</button></td>
-                    </tr>
-                    <tr>
-                        <td><a href="#" class="item-link">Wireless Earbuds</a></td>
-                        <td>04/15/2025</td>
-                        <td>Cafeteria</td>
-                        <td><span class="badge-lost">Lost</span></td>
-                        <td><button class="btn btn-view-details">View Details</button></td>
-                    </tr>
-                    <tr>
-                        <td><a href="#" class="item-link">Laptop Charger</a></td>
-                        <td>04/10/2025</td>
-                        <td>Library, 2nd Floor</td>
-                        <td><span class="badge-unclaimed">Unclaimed</span></td>
-                        <td><button class="btn btn-view-details">View Details</button></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="d-flex justify-content-between align-items-center mt-3">
-            <div class="pagination-info">
-                Showing 1 to 3 of 3 reports.
-            </div>
-            <nav>
-                <ul class="pagination mb-0">
-                    <li class="page-item active">
-                        <a class="page-link" href="#">1</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">2</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">3</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">Next</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-
-    <div class="text-center" style="color: #757575; font-size: 0.875rem; margin-top: 3rem;">
-        © 2025 Lost&Logged. For academic use only.
-    </div>
+<div class="mb-3">
+    <a asp-controller="Items" asp-action="Dashboard" class="btn btn-secondary">Back to Dashboard</a>
 </div>
 
-@section Scripts {
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+@* SUCCESS MESSAGE *@
+@if (TempData["ClaimSuccess"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["ClaimSuccess"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+@* ERROR MESSAGE *@
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        @TempData["Error"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+@* YELLOW MATCH NOTIFICATION (Like your screenshot) *@
+@if (TempData["MatchNotifications"] != null)
+{
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong> Action Required</strong><br/>
+        @Html.Raw(TempData["MatchNotifications"])
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+@if (!(Model?.Any() ?? false))
+{
+    <p class="text-muted">You have not reported any items yet.</p>
+}
+else
+{
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-6 mb-3">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <strong>@item.Title</strong>
+                        <span class="badge bg-@(item.ItemType == ItemType.Lost ? "danger" : "success")">
+                            @item.ItemType
+                        </span>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Description:</strong> @(string.IsNullOrWhiteSpace(item.Description) ? "-" : item.Description)</p>
+                        <p><strong>Location:</strong> @item.Location</p>
+                        <p><strong>Date:</strong> @item.DateReported.ToLocalTime().ToString("yyyy-MM-dd")</p>
+                        <p><strong>Category:</strong> @item.Category?.CategoryName</p>
+                        <p><strong>Status:</strong> 
+                            <span class="badge bg-@(item.Status == ItemStatus.Pending ? "warning" : item.Status == ItemStatus.Claimed ? "success" : "info")">
+                                @item.Status
+                            </span>
+                        </p>
+                        
+                        @* ONLY SHOW "Find Matches" FOR LOST ITEMS *@
+                        @if (item.ItemType == ItemType.Lost)
+                        {
+                            @if (item.Status == ItemStatus.Pending)
+                            {
+                                <hr />
+                                <a asp-action="FindMatches" asp-route-itemId="@item.ItemId" class="btn btn-primary w-100">
+                                     Find Matches
+                                </a>
+                            }
+                            else if (item.Status == ItemStatus.UnderReview)
+                            {
+                                <div class="alert alert-info mt-2 mb-0">
+                                    <small> Match pending admin verification</small>
+                                </div>
+                            }
+                            else if (item.Status == ItemStatus.Claimed)
+                            {
+                                <div class="alert alert-success mt-2 mb-0">
+                                    <small> Matched and Claimed! Item is ready for collection at Security Office.</small>
+                                </div>
+                            }
+                            else if (item.Status == ItemStatus.Resolved)
+                            {
+                                <div class="alert alert-secondary mt-2 mb-0" style="background-color: #e9ecef; border-color: #dee2e6; color: #495057;">
+                                    <strong> Case Closed</strong><br/>
+                                    <small>This item has been successfully collected and the case is resolved.</small>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            @* FOR FOUND ITEMS *@
+                            @if (item.Status == ItemStatus.Pending)
+                            {
+                                <div class="alert alert-info mt-2 mb-0">
+                                    <small> This found item is listed. The owner can search for it.</small>
+                                </div>
+                            }
+                            else if (item.Status == ItemStatus.UnderReview)
+                            {
+                                <div class="alert alert-warning mt-2 mb-0" style="background-color: #fff3cd; border-color: #ffeaa7; color: #856404;">
+                                    <small> Someone claimed this item. Admin is verifying.</small>
+                                </div>
+                            }
+                            else if (item.Status == ItemStatus.Claimed)
+                            {
+                                <div class="alert alert-success mt-2 mb-0">
+                                    <small> Owner found! Item claimed and ready for collection.</small>
+                                </div>
+                            }
+                            else if (item.Status == ItemStatus.Resolved)
+                            {
+                                <div class="alert alert-secondary mt-2 mb-0" style="background-color: #e9ecef; border-color: #dee2e6; color: #495057;">
+                                    <strong> Case Closed</strong><br/>
+                                    <small>This item has been successfully returned to the owner.</small>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 }

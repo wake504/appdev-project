@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Appdev_Group_8.Models.User>
+
+@{
+    ViewData["Title"] = "View Users";
+}
+
+<h2>Users</h2>
+
+<div class="mb-3">
+    <a asp-action="AdminDashboard" asp-controller="Admin" class="btn btn-secondary">Back to Dashboard</a>
+</div>
+
+@if (!(Model?.Any() ?? false))
+{
+    <p class="text-muted">No users found.</p>
+}
+else
+{
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>Email / SchoolID</th>
+                <th>Role</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var u in Model)
+            {
+                <tr>
+                    <td>@u.FullName</td>
+                    <td>@(u.Email ?? u.SchoolId)</td>
+                    <td>@u.Role</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

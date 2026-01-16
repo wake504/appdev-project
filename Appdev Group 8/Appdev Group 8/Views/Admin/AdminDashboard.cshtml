@@ -1,335 +1,72 @@
+@model IEnumerable<Appdev_Group_8.Models.Item>
+
 @{
     ViewData["Title"] = "Admin Dashboard";
+    var totalLost = (ViewData["TotalLost"] as int?) ?? 0;
+    var totalFound = (ViewData["TotalFound"] as int?) ?? 0;
 }
 
-<style>
-    .admin-nav {
-        border-bottom: 3px solid #e0e0e0;
-        padding: 1rem 0;
-        margin-bottom: 2rem;
-    }
+<h2>Admin Dashboard</h2>
 
-    .admin-nav a {
-        color: #616161;
-        text-decoration: none;
-        margin-right: 2rem;
-        font-weight: 500;
-        font-size: 0.95rem;
-        padding-bottom: 0.5rem;
-        border-bottom: 3px solid transparent;
-    }
-
-    .admin-nav a.active {
-        color: #1976d2;
-        border-bottom: 3px solid #1976d2;
-    }
-
-    .admin-nav a:hover {
-        color: #1976d2;
-    }
-
-    .stat-card {
-        background: white;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        padding: 1.5rem;
-        text-align: center;
-        margin-bottom: 1rem;
-    }
-
-    .stat-number {
-        font-size: 2.5rem;
-        font-weight: 700;
-        color: #1976d2;
-    }
-
-    .stat-label {
-        color: #616161;
-        font-size: 0.95rem;
-        margin-top: 0.5rem;
-    }
-
-    .stat-icon {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-    }
-
-    .section-title {
-        font-size: 1.5rem;
-        font-weight: 600;
-        color: #37474f;
-        margin-top: 2rem;
-        margin-bottom: 1rem;
-    }
-
-    .activity-table {
-        background: white;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        padding: 1.5rem;
-    }
-
-    .activity-table table {
-        margin-bottom: 0;
-    }
-
-    .activity-table thead th {
-        background-color: #f5f5f5;
-        color: #424242;
-        font-weight: 600;
-        border-bottom: 2px solid #e0e0e0;
-        padding: 0.75rem;
-    }
-
-    .activity-table tbody tr {
-        border-bottom: 1px solid #e0e0e0;
-    }
-
-    .activity-table tbody tr:hover {
-        background-color: #f9f9f9;
-    }
-
-    .activity-table tbody td {
-        padding: 0.75rem;
-        color: #424242;
-        vertical-align: middle;
-    }
-
-    .item-link {
-        color: #1976d2;
-        text-decoration: none;
-        font-weight: 500;
-    }
-
-    .item-link:hover {
-        text-decoration: underline;
-    }
-
-    .badge-lost {
-        background-color: #e53935;
-        color: white;
-        padding: 0.35rem 0.75rem;
-        border-radius: 4px;
-        font-size: 0.875rem;
-        font-weight: 500;
-    }
-
-    .badge-found {
-        background-color: #4caf50;
-        color: white;
-        padding: 0.35rem 0.75rem;
-        border-radius: 4px;
-        font-size: 0.875rem;
-        font-weight: 500;
-    }
-
-    .badge-unclaimed {
-        background-color: #9e9e9e;
-        color: white;
-        padding: 0.35rem 0.75rem;
-        border-radius: 4px;
-        font-size: 0.875rem;
-        font-weight: 500;
-    }
-
-    .btn-manage {
-        background-color: #1976d2;
-        border-color: #1976d2;
-        color: white;
-        padding: 0.25rem 0.75rem;
-        font-size: 0.875rem;
-    }
-
-    .btn-manage:hover {
-        background-color: #1565c0;
-        border-color: #1565c0;
-        color: white;
-    }
-
-    .quick-actions {
-        background: white;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        padding: 1.5rem;
-        height: fit-content;
-    }
-
-    .quick-actions .btn {
-        width: 100%;
-        margin-bottom: 0.75rem;
-        padding: 0.75rem;
-    }
-
-    .pagination-info {
-        color: #616161;
-        font-size: 0.875rem;
-        margin-top: 1rem;
-    }
-
-    .pagination .page-link {
-        color: #424242;
-        border: 1px solid #dee2e6;
-    }
-
-    .pagination .page-item.active .page-link {
-        background-color: #1976d2;
-        border-color: #1976d2;
-    }
-</style>
-
-<div class="container">
-    <!-- Admin Navigation -->
-    <div class="admin-nav">
-        <a href="#" class="active">Admin Dashboard</a>
-        <a asp-action="ManageLostReports" asp-controller="Home">Manage Lost Reports</a>
-        <a asp-action="ManageFoundItems" asp-controller="Home">Manage Found</a>
-        <a asp-action="AdminReports" asp-controller="Home">Admin Reports</a>
-        <a asp-action="Logout" asp-controller="Home" class="ms-auto">Logout</a>
+<div class="mb-3 d-flex gap-3 align-items-center">
+    <div>
+        <a asp-action="ClaimReports" asp-controller="Admin" class="btn btn-outline-primary">Claim Reports</a>
+        <a asp-action="ViewUsers" asp-controller="Admin" class="btn btn-outline-secondary">View Users</a>
     </div>
 
-    <!-- Page Title -->
-    <h2 style="color: #37474f; font-weight: 600; margin-bottom: 0.5rem;">Admin Dashboard</h2>
-    <p style="color: #616161; margin-bottom: 2rem;">Welcome back, Admin! Here's a summary of the current lost and found status.</p>
-
-    <!-- Stat Cards Row -->
-    <div class="row">
-        <div class="col-md-3">
-            <div class="stat-card">
-                <div class="stat-icon"><img src="~/images/file-search.png" alt="Lost Items" style="width: 50px; height: 50px;"></div>
-                <div class="stat-number">27</div>
-                <div class="stat-label">Lost Items</div>
-            </div>
+    <div class="ms-auto d-flex gap-3">
+        <div class="p-3 bg-white border rounded text-center">
+            <div class="h6 mb-1">Lost Items</div>
+            <div class="h3">@totalLost</div>
         </div>
-        <div class="col-md-3">
-            <div class="stat-card">
-                <div class="stat-icon"><img src="~/images/search-check.png" alt="Found Items" style="width: 50px; height: 50px;"></div>
-                <div class="stat-number">11</div>
-                <div class="stat-label">Found Items</div>
-            </div>
+        <div class="p-3 bg-white border rounded text-center">
+            <div class="h6 mb-1">Found Items</div>
+            <div class="h3">@totalFound</div>
         </div>
-        <div class="col-md-3">
-            <div class="stat-card">
-                <div class="stat-icon"><img src="~/images/hourglass.png" alt="Pending Claims" style="width: 50px; height: 50px;"></div>
-                <div class="stat-number">5</div>
-                <div class="stat-label">Pending Claims</div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="stat-card">
-                <div class="stat-icon"><img src="~/images/triangle-alert.png" alt="Unclaimed Items" style="width: 50px; height: 50px;"></div>
-                <div class="stat-number">2</div>
-                <div class="stat-label">Unclaimed Items</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Main Content Row -->
-    <div class="row mt-4">
-        <!-- Recent Activity Section -->
-        <div class="col-lg-8">
-            <h5 class="section-title">Recent Activity</h5>
-            <p style="color: #616161; margin-bottom: 1rem;">Here are the most recent lost item reports and updates.</p>
-
-            <div class="activity-table">
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Item Name</th>
-                                <th>Reported By</th>
-                                <th>Date</th>
-                                <th>Status</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><a href="#" class="item-link">Wireless Earbuds</a></td>
-                                <td>Sarah Johnson</td>
-                                <td>04/15/2025</td>
-                                <td><span class="badge-lost">Lost</span></td>
-                                <td><button class="btn btn-manage btn-sm">Manage</button></td>
-                            </tr>
-                            <tr>
-                                <td><a href="#" class="item-link">Red Backpack</a></td>
-                                <td>Michael Cruz</td>
-                                <td>04/14/2025</td>
-                                <td><span class="badge-found">Found</span></td>
-                                <td><button class="btn btn-manage btn-sm">Manage</button></td>
-                            </tr>
-                            <tr>
-                                <td><a href="#" class="item-link">Laptop Charger</a></td>
-                                <td>Emily Tan</td>
-                                <td>04/10/2025</td>
-                                <td><span class="badge-unclaimed">Unclaimed</span></td>
-                                <td><button class="btn btn-manage btn-sm">Manage</button></td>
-                            </tr>
-                            <tr>
-                                <td><a href="#" class="item-link">Blue Pencil Case</a></td>
-                                <td>John Reyes</td>
-                                <td>04/09/2025</td>
-                                <td><span class="badge-found">Found</span></td>
-                                <td><button class="btn btn-manage btn-sm">Manage</button></td>
-                            </tr>
-                            <tr>
-                                <td><a href="#" class="item-link">Notebook</a></td>
-                                <td>Chris dela Cruz</td>
-                                <td>04/09/2025</td>
-                                <td><span class="badge-lost">Lost</span></td>
-                                <td><button class="btn btn-manage btn-sm">Manage</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="pagination-info">
-                    Showing 1 to 5 of 5 entries
-                </div>
-                <nav>
-                    <ul class="pagination mb-0">
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#">Previous</a>
-                        </li>
-                        <li class="page-item active">
-                            <a class="page-link" href="#">1</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">2</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">3</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">4</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">Next</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-
-        <!-- Quick Actions Section -->
-        <div class="col-lg-4">
-            <h5 class="section-title">Quick Actions</h5>
-            <div class="quick-actions">
-                <a asp-action="AddFoundItem" asp-controller="Home" class="btn btn-primary">
-                    <i class="bi bi-plus-circle me-2"></i>Add Found Item
-                </a>
-                <a asp-action="AllReports" asp-controller="Home" class="btn btn-primary">
-                    <i class="bi bi-eye me-2"></i>View All Reports
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <div class="text-center" style="color: #757575; font-size: 0.875rem; margin-top: 3rem; margin-bottom: 2rem;">
-        © 2025 Lost&Logged. For academic use only.
     </div>
 </div>
 
-@section Scripts {
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+<h4 class="mt-4">All Reports</h4>
+
+@if (!(Model?.Any() ?? false))
+{
+    <p class="text-muted">No reports yet.</p>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>Date Found</th>
+                    <th>Location</th>
+                    <th>Reported By</th>
+                    <th>Category</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Title</td>
+                        <td>@(string.IsNullOrWhiteSpace(item.Description) ? "-" : item.Description)</td>
+                        <td>@item.ItemType</td>
+                        <td>
+                            @(item.DateLostOrFound.HasValue
+                                ? item.DateLostOrFound.Value.ToLocalTime().ToString("yyyy-MM-dd")
+                                : item.DateReported.ToLocalTime().ToString("yyyy-MM-dd"))
+                        </td>
+                        <td>@item.Location</td>
+                        <td>@item.ReportingUser?.FullName</td>
+                        <td>@item.Category?.CategoryName</td>
+                        <td>@item.Status</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 }

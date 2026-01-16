@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Lost&Logged | Login";
+    ViewData["Title"] = "Login";
 }
 
 <div class="d-flex align-items-center justify-content-center vh-100">
@@ -11,7 +11,7 @@
                 <h3 class="text-center mb-4 fw-bold logo-title">
                     Lost&Logged
                 </h3>
-
+                
                 <!-- Login Card -->
                 <div class="card border-0 shadow">
                     <div class="card-body p-4">
@@ -20,54 +20,32 @@
                             User Login
                         </h6>
 
-                        <!-- Username -->
-                        <div class="mb-3">
-                            <label class="form-label small text-muted">User Login</label>
-                            <div class="input-group">
-                                <span class="input-group-text bg-white">
-                                    <i class="bi bi-person-fill text-primary"></i>
-                                </span>
-                                <input type="text" class="form-control" placeholder="Username">
-                            </div>
-                        </div>
-
-                        <!-- Password -->
-                        <div class="mb-2">
-                            <label class="form-label small text-muted">Password</label>
-                            <div class="input-group">
-                                <span class="input-group-text bg-white">
-                                    <i class="bi bi-lock-fill text-primary"></i>
-                                </span>
-                                <input type="password" class="form-control" placeholder="Password">
-                            </div>
-                        </div>
-
-                        <!-- Forgot password -->
-                        <div class="mb-3 text-end">
-                            <a href="#" class="small text-primary text-decoration-none">
-                                Forgot password?
-                            </a>
-                        </div>
-
-                        <!-- Login Button -->
-                        <div class="d-grid mb-2">
-                            <button class="btn btn-primary">
-                                <i class="bi bi-box-arrow-in-right me-1"></i>
-                                Login
-                            </button>
-                        </div>
-
-                        <!-- Admin Login -->
-                        <div class="d-grid">
-                            <a asp-action="AdminLogin" asp-controller="Home" class="btn btn-outline-primary btn-sm">
-                                <i class="bi bi-shield-lock-fill me-1"></i>
-                                Login as Admin
-                            </a>
-                        </div>
-
+                  
+                      
+                                        <h5 class="card-title">Login</h5>
+                                        <form asp-action="Index" method="post">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="returnUrl" value="@ViewData["ReturnUrl"]" />
+                            <div asp-validation-summary="All" class="text-danger mb-3"></div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Email or School ID</label>
+                                                <input class="form-control" name="identifier" required />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Password</label>
+                                                <input type="password" class="form-control" name="password" required />
+                                            </div>
+                                            <div class="mb-3 form-check">
+                                                <input type="checkbox" class="form-check-input" name="rememberMe" id="rememberMe" />
+                                                <label class="form-check-label" for="rememberMe">Remember me</label>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Login</button>
+                                        </form>
+                                   
+         
                     </div>
                 </div>
-
+                
                 <!-- Footer -->
                 <p class="text-center small text-muted mt-3">
                     © 2025 Lost&Logged. For academic use only.

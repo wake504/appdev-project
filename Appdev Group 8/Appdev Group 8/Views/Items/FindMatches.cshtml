@@ -1,0 +1,80 @@
+﻿@model List<Appdev_Group_8.Controllers.ItemMatchResult>
+@using Appdev_Group_8.Models
+
+@{
+    ViewData["Title"] = "Find Matches";
+    var sourceItem = ViewData["SourceItem"] as Item;
+}
+
+<h2>Find Matches for: @sourceItem?.Title</h2>
+
+<div class="mb-3">
+    <a asp-controller="Items" asp-action="MyReports" class="btn btn-secondary">Back to My Reports</a>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-6">
+        <div class="card border-primary">
+            <div class="card-header bg-primary text-white">
+                <strong>Your Item</strong>
+            </div>
+            <div class="card-body">
+                <p><strong>Title:</strong> @sourceItem?.Title</p>
+                <p><strong>Type:</strong> <span class="badge bg-@(sourceItem?.ItemType == ItemType.Lost ? "danger" : "success")">@sourceItem?.ItemType</span></p>
+                <p><strong>Description:</strong> @(string.IsNullOrWhiteSpace(sourceItem?.Description) ? "-" : sourceItem.Description)</p>
+                <p><strong>Location:</strong> @sourceItem?.Location</p>
+                <p><strong>Date:</strong> @((sourceItem?.DateLostOrFound ?? sourceItem?.DateReported)?.ToLocalTime().ToString("yyyy-MM-dd"))</p>
+                <p><strong>Category:</strong> @sourceItem?.Category?.CategoryName</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h4>Potential Matches</h4>
+
+@if (!(Model?.Any() ?? false))
+{
+    <div class="alert alert-info">
+        <p>😔 No potential matches found yet.</p>
+        <p>We'll keep looking as new items are reported!</p>
+    </div>
+}
+else
+{
+    <p class="text-muted mb-3">Found @Model.Count potential match(es). Click "Confirm Match" to claim the item.</p>
+    
+    <div class="row">
+        @foreach (var match in Model)
+        {
+            <div class="col-md-6 mb-3">
+                <div class="card h-100">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <strong>@match.Item.Title</strong>
+                        <span class="badge @match.MatchBadgeClass">@match.MatchScore% - @match.MatchQuality</span>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Type:</strong> <span class="badge bg-@(match.Item.ItemType == ItemType.Lost ? "danger" : "success")">@match.Item.ItemType</span></p>
+                        <p><strong>Description:</strong> @(string.IsNullOrWhiteSpace(match.Item.Description) ? "-" : match.Item.Description)</p>
+                        <p><strong>Location:</strong> @match.Item.Location</p>
+                        <p><strong>Date:</strong> @((match.Item.DateLostOrFound ?? match.Item.DateReported).ToLocalTime().ToString("yyyy-MM-dd"))</p>
+                        <p><strong>Category:</strong> @match.Item.Category?.CategoryName</p>
+                        <p><strong>Reported By:</strong> @match.Item.ReportingUser?.FullName</p>
+                        
+                        <hr />
+                        
+                        <div class="d-flex gap-2">
+                            <form asp-action="ConfirmMatch" method="post" class="flex-grow-1">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="sourceItemId" value="@sourceItem?.ItemId" />
+                                <input type="hidden" name="matchedItemId" value="@match.Item.ItemId" />
+                                <button type="submit" class="btn btn-success w-100">
+                                    ✓ Confirm Match
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

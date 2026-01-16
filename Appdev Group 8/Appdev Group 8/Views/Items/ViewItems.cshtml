@@ -1,0 +1,83 @@
+@model IEnumerable<Appdev_Group_8.Models.Item>
+@using System.Security.Claims
+
+@{
+    ViewData["Title"] = "All Reports";
+}
+
+<h2>All Reports</h2>
+
+<div class="mb-3">
+    <a asp-controller="Items" asp-action="Dashboard" class="btn btn-secondary">Back to Dashboard</a>
+</div>
+
+@if (TempData["ClaimError"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        @TempData["ClaimError"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+@if (TempData["ClaimSuccess"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["ClaimSuccess"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+<div class="alert alert-info">
+    <strong>?? How to claim items:</strong>
+    <ul class="mb-0 mt-2">
+        <li><strong>Lost an item?</strong> Go to "My Reports" ? Click "Find Matches" to search for found items.</li>
+        <li><strong>Found an item?</strong> Report it, and the owner will find it through their search.</li>
+    </ul>
+</div>
+
+@if (!(Model?.Any() ?? false))
+{
+    <p class="text-muted">No reports yet.</p>
+}
+else
+{ 
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>Date</th>
+                    <th>Location</th>
+                    <th>Reported By</th>
+                    <th>Category</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Title</td>
+                    <td>@(string.IsNullOrWhiteSpace(item.Description) ? "-" : item.Description)</td>
+                    <td>
+                        <span class="badge bg-@(item.ItemType == ItemType.Lost ? "danger" : "success")">
+                            @item.ItemType
+                        </span>
+                    </td>
+                    <td>@(item.DateLostOrFound?.ToLocalTime().ToString("yyyy-MM-dd") ?? item.DateReported.ToLocalTime().ToString("yyyy-MM-dd"))</td>
+                    <td>@item.Location</td>
+                    <td>@item.ReportingUser?.FullName</td>
+                    <td>@item.Category?.CategoryName</td>
+                    <td>
+                        <span class="badge bg-@(item.Status == ItemStatus.Pending ? "warning" : item.Status == ItemStatus.Claimed ? "success" : "info")">
+                            @item.Status
+                        </span>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+}
