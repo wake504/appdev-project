@@ -72,7 +72,7 @@ using (var scope = app.Services.CreateScope())
                 SchoolId = "123",
                 Role = UserRole.User
             };
-            user.PasswordHash = hasher.HashPassword(user, "pass124");
+            user.PasswordHash = hasher.HashPassword(user, "pass123");
             db.Users.Add(user);
             db.SaveChanges();
         }

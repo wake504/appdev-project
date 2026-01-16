@@ -153,7 +153,7 @@ namespace Appdev_Group_8.Controllers
             if (finderNotifications.Any())
             {
                 var finderMessages = finderNotifications
-                    .Select(c => $"Someone claimed your found item '<strong>{c.Item?.Title}</strong>'. Please bring it to the Security Office for verification.")
+                    .Select(c => $"Someone claimed your found item '<strong>{c.Item?.Title}</strong>'. Please bring it to the Security Office, PUP Main Gate for verification.")
                     .ToList();
 
                 TempData["MatchNotifications"] = string.Join("<br/>", finderMessages);
@@ -386,7 +386,7 @@ namespace Appdev_Group_8.Controllers
             sourceItem.Status = ItemStatus.UnderReview;  // Also update owner's lost item
             await _db.SaveChangesAsync();
 
-            TempData["ClaimSuccess"] = $"Match confirmed! The finder will be notified to bring the item to Security Office. Admin will verify and contact you.";
+            TempData["ClaimSuccess"] = $"Match confirmed! The finder will be notified to bring the item to Security Office, PUP Main Gate. Admin will verify and contact you.";
             
             _logger.LogInformation("Match confirmed: User {UserId} matched Lost item {SourceId} with Found item {MatchedId}.", 
                 userId, sourceItemId, matchedItemId);

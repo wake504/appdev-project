@@ -3,6 +3,26 @@
   "WorkspaceRootPath": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|c:\\users\\markanthonypmadelo\\source\\repos\\appdev-project\\appdev group 8\\appdev group 8\\views\\admin\\claimreports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|solutionrelative:appdev group 8\\views\\admin\\claimreports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|c:\\users\\markanthonypmadelo\\source\\repos\\appdev-project\\appdev group 8\\appdev group 8\\models\\claim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|solutionrelative:appdev group 8\\models\\claim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|c:\\users\\markanthonypmadelo\\source\\repos\\appdev-project\\appdev group 8\\appdev group 8\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|solutionrelative:appdev group 8\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|c:\\users\\markanthonypmadelo\\source\\repos\\appdev-project\\appdev group 8\\appdev group 8\\controllers\\itemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|solutionrelative:appdev group 8\\controllers\\itemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|c:\\users\\markanthonypmadelo\\source\\repos\\appdev-project\\appdev group 8\\appdev group 8\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|solutionrelative:appdev group 8\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|c:\\users\\markanthonypmadelo\\source\\repos\\appdev-project\\appdev group 8\\appdev group 8\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|solutionrelative:appdev group 8\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -19,10 +39,6 @@
       "RelativeMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|solutionrelative:appdev group 8\\views\\items\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|c:\\users\\markanthonypmadelo\\source\\repos\\appdev-project\\appdev group 8\\appdev group 8\\controllers\\itemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|solutionrelative:appdev group 8\\controllers\\itemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|c:\\users\\markanthonypmadelo\\source\\repos\\appdev-project\\appdev group 8\\appdev group 8\\views\\items\\viewitems.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|solutionrelative:appdev group 8\\views\\items\\viewitems.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -35,16 +51,8 @@
       "RelativeMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|solutionrelative:appdev group 8\\views\\items\\myreports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|c:\\users\\markanthonypmadelo\\source\\repos\\appdev-project\\appdev group 8\\appdev group 8\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|solutionrelative:appdev group 8\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|c:\\users\\markanthonypmadelo\\source\\repos\\appdev-project\\appdev group 8\\appdev group 8\\views\\admin\\admindashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|solutionrelative:appdev group 8\\views\\admin\\admindashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|c:\\users\\markanthonypmadelo\\source\\repos\\appdev-project\\appdev group 8\\appdev group 8\\views\\admin\\claimreports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|solutionrelative:appdev group 8\\views\\admin\\claimreports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|c:\\users\\markanthonypmadelo\\source\\repos\\appdev-project\\appdev group 8\\appdev group 8\\views\\items\\findmatches.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -55,16 +63,8 @@
       "RelativeMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|solutionrelative:appdev group 8\\views\\admin\\viewusers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|c:\\users\\markanthonypmadelo\\source\\repos\\appdev-project\\appdev group 8\\appdev group 8\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|solutionrelative:appdev group 8\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|c:\\users\\markanthonypmadelo\\source\\repos\\appdev-project\\appdev group 8\\appdev group 8\\migrations\\20260116100615_updatedclaimmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|solutionrelative:appdev group 8\\migrations\\20260116100615_updatedclaimmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|c:\\users\\markanthonypmadelo\\source\\repos\\appdev-project\\appdev group 8\\appdev group 8\\models\\claim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|solutionrelative:appdev group 8\\models\\claim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|c:\\users\\markanthonypmadelo\\source\\repos\\appdev-project\\appdev group 8\\appdev group 8\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -93,29 +93,29 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "Appdev Group 8\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Views\\Home\\Index.cshtml*",
-              "RelativeToolTip": "Appdev Group 8\\Views\\Home\\Index.cshtml*",
-              "ViewState": "AgIAACcAAAAAAAAAAAAUwDcAAAAKAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Appdev Group 8\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAADcAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-01-16T13:46:41.712Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "SignUp.cshtml",
               "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Views\\Home\\SignUp.cshtml",
               "RelativeDocumentMoniker": "Appdev Group 8\\Views\\Home\\SignUp.cshtml",
-              "ToolTip": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Views\\Home\\SignUp.cshtml*",
-              "RelativeToolTip": "Appdev Group 8\\Views\\Home\\SignUp.cshtml*",
+              "ToolTip": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Views\\Home\\SignUp.cshtml",
+              "RelativeToolTip": "Appdev Group 8\\Views\\Home\\SignUp.cshtml",
               "ViewState": "AgIAABsAAAAAAAAAAAAAAD0AAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-01-16T13:46:59.763Z",
@@ -123,7 +123,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Appdev Group 8\\Views\\Shared\\_Layout.cshtml",
@@ -148,46 +148,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "MyReports.cshtml",
-              "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Views\\Items\\MyReports.cshtml",
-              "RelativeDocumentMoniker": "Appdev Group 8\\Views\\Items\\MyReports.cshtml",
-              "ToolTip": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Views\\Items\\MyReports.cshtml",
-              "RelativeToolTip": "Appdev Group 8\\Views\\Items\\MyReports.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-15T21:17:40.291Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ReportItem.cshtml",
-              "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Views\\Items\\ReportItem.cshtml",
-              "RelativeDocumentMoniker": "Appdev Group 8\\Views\\Items\\ReportItem.cshtml",
-              "ToolTip": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Views\\Items\\ReportItem.cshtml",
-              "RelativeToolTip": "Appdev Group 8\\Views\\Items\\ReportItem.cshtml",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAADcAAABKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-16T11:06:21.159Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ViewItems.cshtml",
-              "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Views\\Items\\ViewItems.cshtml",
-              "RelativeDocumentMoniker": "Appdev Group 8\\Views\\Items\\ViewItems.cshtml",
-              "ToolTip": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Views\\Items\\ViewItems.cshtml",
-              "RelativeToolTip": "Appdev Group 8\\Views\\Items\\ViewItems.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-15T20:03:53.101Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "ItemsController.cs",
+              "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Controllers\\ItemsController.cs",
+              "RelativeDocumentMoniker": "Appdev Group 8\\Controllers\\ItemsController.cs",
+              "ToolTip": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Controllers\\ItemsController.cs",
+              "RelativeToolTip": "Appdev Group 8\\Controllers\\ItemsController.cs",
+              "ViewState": "AgIAAJsBAAAAAAAAAAAiwIQBAACJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-15T19:59:41.937Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Program.cs",
+              "RelativeDocumentMoniker": "Appdev Group 8\\Program.cs",
+              "ToolTip": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Program.cs",
+              "RelativeToolTip": "Appdev Group 8\\Program.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAAEoAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-16T02:06:48.305Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ClaimReports.cshtml",
+              "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Views\\Admin\\ClaimReports.cshtml",
+              "RelativeDocumentMoniker": "Appdev Group 8\\Views\\Admin\\ClaimReports.cshtml",
+              "ToolTip": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Views\\Admin\\ClaimReports.cshtml",
+              "RelativeToolTip": "Appdev Group 8\\Views\\Admin\\ClaimReports.cshtml",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAYwFoAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-15T21:01:26.201Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "Dashboard.cshtml",
               "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Views\\Items\\Dashboard.cshtml",
               "RelativeDocumentMoniker": "Appdev Group 8\\Views\\Items\\Dashboard.cshtml",
@@ -200,33 +200,72 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Program.cs",
-              "RelativeDocumentMoniker": "Appdev Group 8\\Program.cs",
-              "ToolTip": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Program.cs",
-              "RelativeToolTip": "Appdev Group 8\\Program.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAAEUAAAAnAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "Appdev Group 8\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "Appdev Group 8\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAM8AAACVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-16T02:06:48.305Z",
+              "WhenOpened": "2026-01-15T21:02:35.5Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ItemsController.cs",
-              "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Controllers\\ItemsController.cs",
-              "RelativeDocumentMoniker": "Appdev Group 8\\Controllers\\ItemsController.cs",
-              "ToolTip": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Controllers\\ItemsController.cs",
-              "RelativeToolTip": "Appdev Group 8\\Controllers\\ItemsController.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAACgAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "CLaim.cs",
+              "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Models\\CLaim.cs",
+              "RelativeDocumentMoniker": "Appdev Group 8\\Models\\CLaim.cs",
+              "ToolTip": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Models\\CLaim.cs",
+              "RelativeToolTip": "Appdev Group 8\\Models\\CLaim.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAgwA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-15T19:59:41.937Z",
+              "WhenOpened": "2026-01-15T21:32:35.009Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
+              "Title": "ViewItems.cshtml",
+              "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Views\\Items\\ViewItems.cshtml",
+              "RelativeDocumentMoniker": "Appdev Group 8\\Views\\Items\\ViewItems.cshtml",
+              "ToolTip": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Views\\Items\\ViewItems.cshtml",
+              "RelativeToolTip": "Appdev Group 8\\Views\\Items\\ViewItems.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-15T20:03:53.101Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ReportItem.cshtml",
+              "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Views\\Items\\ReportItem.cshtml",
+              "RelativeDocumentMoniker": "Appdev Group 8\\Views\\Items\\ReportItem.cshtml",
+              "ToolTip": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Views\\Items\\ReportItem.cshtml",
+              "RelativeToolTip": "Appdev Group 8\\Views\\Items\\ReportItem.cshtml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAADcAAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-16T11:06:21.159Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "MyReports.cshtml",
+              "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Views\\Items\\MyReports.cshtml",
+              "RelativeDocumentMoniker": "Appdev Group 8\\Views\\Items\\MyReports.cshtml",
+              "ToolTip": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Views\\Items\\MyReports.cshtml",
+              "RelativeToolTip": "Appdev Group 8\\Views\\Items\\MyReports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-15T21:17:40.291Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "AdminDashboard.cshtml",
               "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Views\\Admin\\AdminDashboard.cshtml",
               "RelativeDocumentMoniker": "Appdev Group 8\\Views\\Admin\\AdminDashboard.cshtml",
@@ -239,20 +278,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ClaimReports.cshtml",
-              "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Views\\Admin\\ClaimReports.cshtml",
-              "RelativeDocumentMoniker": "Appdev Group 8\\Views\\Admin\\ClaimReports.cshtml",
-              "ToolTip": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Views\\Admin\\ClaimReports.cshtml",
-              "RelativeToolTip": "Appdev Group 8\\Views\\Admin\\ClaimReports.cshtml",
-              "ViewState": "AgIAACEAAAAAAAAAAAAAACYAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-15T21:01:26.201Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "FindMatches.cshtml",
               "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Views\\Items\\FindMatches.cshtml",
               "RelativeDocumentMoniker": "Appdev Group 8\\Views\\Items\\FindMatches.cshtml",
@@ -265,7 +291,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "ViewUsers.cshtml",
               "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Views\\Admin\\ViewUsers.cshtml",
               "RelativeDocumentMoniker": "Appdev Group 8\\Views\\Admin\\ViewUsers.cshtml",
@@ -278,20 +304,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "AdminController.cs",
-              "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Controllers\\AdminController.cs",
-              "RelativeDocumentMoniker": "Appdev Group 8\\Controllers\\AdminController.cs",
-              "ToolTip": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Controllers\\AdminController.cs",
-              "RelativeToolTip": "Appdev Group 8\\Controllers\\AdminController.cs",
-              "ViewState": "AgIAAKsAAAAAAAAAAAArwMYAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-15T21:02:35.5Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "20260116100615_UpdatedClaimModel.cs",
               "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Migrations\\20260116100615_UpdatedClaimModel.cs",
               "RelativeDocumentMoniker": "Appdev Group 8\\Migrations\\20260116100615_UpdatedClaimModel.cs",
@@ -301,18 +314,6 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-16T10:06:16.164Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "CLaim.cs",
-              "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Models\\CLaim.cs",
-              "RelativeDocumentMoniker": "Appdev Group 8\\Models\\CLaim.cs",
-              "ToolTip": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Models\\CLaim.cs",
-              "RelativeToolTip": "Appdev Group 8\\Models\\CLaim.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAQwA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-15T21:32:35.009Z"
             },
             {
               "$type": "Document",
