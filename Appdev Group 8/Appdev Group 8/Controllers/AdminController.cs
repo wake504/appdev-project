@@ -27,8 +27,17 @@ namespace Appdev_Group_8.Controllers
         // GET: /Admin/AdminDashboard
         public async Task<IActionResult> AdminDashboard()
         {
-            var totalLost = await _db.Items.CountAsync(i => i.ItemType == ItemType.Lost);
-            var totalFound = await _db.Items.CountAsync(i => i.ItemType == ItemType.Found);
+            // Count Lost items (excluding Resolved)
+            var totalLost = await _db.Items.CountAsync(i => i.ItemType == ItemType.Lost && i.Status != ItemStatus.Resolved);
+            
+            // Count Found items (excluding Resolved)
+            var totalFound = await _db.Items.CountAsync(i => i.ItemType == ItemType.Found && i.Status != ItemStatus.Resolved);
+            
+            // Count Resolved items
+            var totalResolved = await _db.Items.CountAsync(i => i.Status == ItemStatus.Resolved);
+            
+            // Count Pending items
+            var totalPending = await _db.Items.CountAsync(i => i.Status == ItemStatus.Pending);
 
             var items = await _db.Items
                 .Include(i => i.Category)
@@ -38,8 +47,10 @@ namespace Appdev_Group_8.Controllers
 
             ViewData["TotalLost"] = totalLost;
             ViewData["TotalFound"] = totalFound;
+            ViewData["TotalResolved"] = totalResolved;
+            ViewData["TotalPending"] = totalPending;
 
-            return View(items); // Views/Admin/AdminDashboard.cshtml expects IEnumerable<Item>
+            return View(items);
         }
 
         // GET: /Admin/ClaimReports
@@ -51,7 +62,7 @@ namespace Appdev_Group_8.Controllers
                 .OrderByDescending(c => c.ClaimDate)
                 .ToListAsync();
 
-            return View(claims); // Views/Admin/ClaimReports.cshtml expects IEnumerable<Claim>
+            return View(claims);
         }
 
         // GET: /Admin/ViewUsers
@@ -61,7 +72,7 @@ namespace Appdev_Group_8.Controllers
                 .OrderBy(u => u.FullName)
                 .ToListAsync();
 
-            return View(users); // Views/Admin/ViewUsers.cshtml expects IEnumerable<User>
+            return View(users);
         }
 
         public async Task<IActionResult> ManageLostReports()
@@ -73,7 +84,7 @@ namespace Appdev_Group_8.Controllers
                 .OrderByDescending(i => i.DateReported)
                 .ToListAsync();
 
-            return View(items); // Views/Admin/ManageLostReports.cshtml should accept IEnumerable<Item>
+            return View(items);
         }
 
         public async Task<IActionResult> ManageFoundItems()
@@ -85,7 +96,7 @@ namespace Appdev_Group_8.Controllers
                 .OrderByDescending(i => i.DateReported)
                 .ToListAsync();
 
-            return View(items); // Views/Admin/ManageFoundItems.cshtml should accept IEnumerable<Item>
+            return View(items);
         }
 
         public async Task<IActionResult> AllReports()
@@ -96,7 +107,7 @@ namespace Appdev_Group_8.Controllers
                 .OrderByDescending(i => i.DateReported)
                 .ToListAsync();
 
-            return View(items); // Views/Admin/AllReports.cshtml
+            return View(items);
         }
 
         [HttpPost]
@@ -112,7 +123,6 @@ namespace Appdev_Group_8.Controllers
             var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             if (!int.TryParse(userIdClaim, out var userId))
             {
-                // fallback or challenge if no valid user id
                 return Challenge();
             }
 
@@ -171,18 +181,22 @@ namespace Appdev_Group_8.Controllers
             return created;
         }
 
-        // Add these admin endpoints to approve/reject claims
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ApproveClaim(int claimId, string? verificationNotes = null, string? collectionLocation = null)
         {
-            var claim = await _db.Claims.Include(c => c.Item).FirstOrDefaultAsync(c => c.ClaimId == claimId);
+            var claim = await _db.Claims
+                .Include(c => c.Item)
+                    .ThenInclude(i => i.ReportingUser)
+                .Include(c => c.ClaimingUser)
+                .FirstOrDefaultAsync(c => c.ClaimId == claimId);
+                
             if (claim == null) return NotFound();
 
             claim.ClaimStatus = ClaimStatus.Approved;
             claim.VerificationNotes = verificationNotes;
-            claim.CollectionLocation = collectionLocation ?? "Security Office, Main Building"; // Default location
-            claim.ClaimDate = DateTime.UtcNow;
+            claim.CollectionLocation = collectionLocation ?? "Security Office, PUP Main Gate";
+            claim.ClaimDate = DateTime.UtcNow;  
 
             if (claim.Item != null)
             {
@@ -191,8 +205,12 @@ namespace Appdev_Group_8.Controllers
 
             await _db.SaveChangesAsync();
             
-            _logger.LogInformation("Claim {ClaimId} approved. Item ready for collection at {Location}", claimId, claim.CollectionLocation);
+            TempData[$"OwnerNotification_{claim.UserId}"] = $"Your item '<strong>{claim.Item?.Title}</strong>' is ready for collection at <strong>{claim.CollectionLocation}</strong>. Please bring your ID for verification.";
             
+            _logger.LogInformation("Claim {ClaimId} approved. Item ready for collection at {Location}. Owner {OwnerId} will be notified.", 
+                claimId, claim.CollectionLocation, claim.UserId);
+            
+            TempData["Success"] = "Claim approved successfully. The owner has been notified to collect the item.";
             return RedirectToAction("ClaimReports");
         }
 
@@ -216,15 +234,12 @@ namespace Appdev_Group_8.Controllers
             return RedirectToAction("ClaimReports");
         }
 
-        // NEW: Mark item as physically collected
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> MarkAsCollected(int claimId)
         {
             var claim = await _db.Claims
                 .Include(c => c.Item)
-                    .ThenInclude(i => i.ReportingUser)
-                .Include(c => c.ClaimingUser)
                 .FirstOrDefaultAsync(c => c.ClaimId == claimId);
                 
             if (claim == null) return NotFound();
@@ -235,55 +250,51 @@ namespace Appdev_Group_8.Controllers
                 return RedirectToAction("ClaimReports");
             }
 
-            // Update claim status
             claim.ClaimStatus = ClaimStatus.ItemCollected;
             claim.CollectionDate = DateTime.UtcNow;
 
-            // Get the matched item (the one that was claimed)
-            var matchedItem = claim.Item;
-            
-            if (matchedItem != null)
+            if (claim.Item != null)
             {
-                // Mark matched item as Resolved
-                matchedItem.Status = ItemStatus.Resolved;
+                claim.Item.Status = ItemStatus.Resolved;
+            }
 
-                // Find the opposite item (if Lost item was claimed, find the Found item reported by the claimer, or vice versa)
-                Item? oppositeItem = null;
-
-                if (matchedItem.ItemType == ItemType.Found)
+            if (claim.OwnerLostItemId.HasValue)
+            {
+                var lostItem = await _db.Items.FindAsync(claim.OwnerLostItemId.Value);
+                if (lostItem != null)
                 {
-                    // Matched item is Found, so find the Lost item reported by the claimer
-                    oppositeItem = await _db.Items
-                        .Where(i => i.UserId == claim.UserId 
-                            && i.ItemType == ItemType.Lost
-                            && i.Status == ItemStatus.Claimed
-                            && i.Title.ToLower() == matchedItem.Title.ToLower())
-                        .FirstOrDefaultAsync();
-                }
-                else if (matchedItem.ItemType == ItemType.Lost)
-                {
-                    // Matched item is Lost, so find the Found item reported by the original reporter
-                    oppositeItem = await _db.Items
-                        .Where(i => i.UserId == matchedItem.UserId 
-                            && i.ItemType == ItemType.Found
-                            && i.Status == ItemStatus.Claimed
-                            && i.Title.ToLower() == matchedItem.Title.ToLower())
-                        .FirstOrDefaultAsync();
-                }
-
-                // Mark opposite item as Resolved too
-                if (oppositeItem != null)
-                {
-                    oppositeItem.Status = ItemStatus.Resolved;
+                    lostItem.Status = ItemStatus.Resolved;
                     _logger.LogInformation("Both items marked as Resolved: Lost Item {LostId} and Found Item {FoundId}", 
-                        matchedItem.ItemType == ItemType.Lost ? matchedItem.ItemId : oppositeItem.ItemId,
-                        matchedItem.ItemType == ItemType.Found ? matchedItem.ItemId : oppositeItem.ItemId);
+                        lostItem.ItemId, claim.Item?.ItemId);
+                }
+            }
+            else
+            {
+                var matchedItem = claim.Item;
+                if (matchedItem != null)
+                {
+                    Item? oppositeItem = null;
+
+                    if (matchedItem.ItemType == ItemType.Found)
+                    {
+                        oppositeItem = await _db.Items
+                            .Where(i => i.UserId == claim.UserId 
+                                && i.ItemType == ItemType.Lost
+                                && (i.Status == ItemStatus.Claimed || i.Status == ItemStatus.UnderReview)
+                                && i.Title.ToLower() == matchedItem.Title.ToLower())
+                            .FirstOrDefaultAsync();
+                    }
+
+                    if (oppositeItem != null)
+                    {
+                        oppositeItem.Status = ItemStatus.Resolved;
+                    }
                 }
             }
 
             await _db.SaveChangesAsync();
             
-            _logger.LogInformation("Item from Claim {ClaimId} collected by owner on {Date}", claimId, claim.CollectionDate);
+            _logger.LogInformation("Item from Claim {ClaimId} collected. Both reports marked as Resolved.", claimId);
             
             TempData["Success"] = "Item marked as collected successfully. Both Lost and Found reports have been resolved.";
             return RedirectToAction("ClaimReports");

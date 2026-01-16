@@ -43,6 +43,9 @@ namespace Appdev_Group_8.Models
         // Track if finder has been notified
         public bool FinderNotified { get; set; } = false;  // ADD THIS
 
+        // NEW: Store owner's lost item ID
+        public int? OwnerLostItemId { get; set; }
+
         public Item? Item { get; set; }
 
         public User? ClaimingUser { get; set; }

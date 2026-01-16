@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,11 +9,14 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Appdev_Group_8.styles.css" asp-append-version="true" />
 </head>
-<body>
+<body class="d-flex flex-column h-100">
     <header>
         <nav class="navbar navbar-light" style="background-color: #800000;">
             <div class="container">
-                <a asp-action="Index" asp-controller="Home" class="navbar-brand" style="font-size: 1.75rem; font-weight: 600; color: #FFFFFF; text-decoration: none;">Lost&Logged</a>
+                <a asp-action="Index" asp-controller="Home" class="navbar-brand d-flex align-items-center" style="font-size: 1.75rem; font-weight: 600; color: #FFFFFF; text-decoration: none;">
+                    <img src="~/images/clipboard-pencil-svgrepo-com.svg" alt="Logo" style="height: 32px; width: 32px; margin-right: 0.5rem; filter: brightness(0) invert(1);" />
+                    Lost&Logged
+                </a>
                 <div>
                     @if (ViewData["Title"] != "Login" && ViewData["Title"] != "Sign Up")
                     {
@@ -26,11 +29,24 @@
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div class="container flex-grow-1">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
+    <footer class="mt-auto" style="background-color: #800000; color: #FFFFFF; padding: 0.75rem 0;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-md-0">
+                    <h6 class="fw-bold mb-1">Group 8 | Mula Sayo, Para Sa Bayan</h6>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-1 small">© @DateTime.Now.Year Lost&Logged • AppDev Final Project</p>
+                   
+                </div>
+            </div>
+        </div>
+    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

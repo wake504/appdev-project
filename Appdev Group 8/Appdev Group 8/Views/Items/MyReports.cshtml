@@ -4,10 +4,16 @@
     ViewData["Title"] = "My Reports";
 }
 
-<h2>My Reports</h2>
+<div class="bg-white rounded-3 shadow-sm p-4 mb-4 mt-5">
+    <div class="d-flex justify-content-between align-items-center">
+        <h2 class="h4 fw-bold mb-0 text-dark">
+            My Reports
+        </h2>
 
-<div class="mb-3">
-    <a asp-controller="Items" asp-action="Dashboard" class="btn btn-secondary">Back to Dashboard</a>
+        <a asp-controller="Items" asp-action="Dashboard" class="btn btn-outline-secondary px-4">
+            <i class="bi bi-arrow-left me-1"></i>Back to Dashboard
+        </a>
+    </div>
 </div>
 
 @* SUCCESS MESSAGE *@
@@ -60,10 +66,12 @@ else
                         <p><strong>Location:</strong> @item.Location</p>
                         <p><strong>Date:</strong> @item.DateReported.ToLocalTime().ToString("yyyy-MM-dd")</p>
                         <p><strong>Category:</strong> @item.Category?.CategoryName</p>
-                        <p><strong>Status:</strong> 
-                            <span class="badge bg-@(item.Status == ItemStatus.Pending ? "warning" : item.Status == ItemStatus.Claimed ? "success" : "info")">
-                                @item.Status
-                            </span>
+                        <p><strong>Status:</strong>
+                            <span class="badge bg-@(item.Status == ItemStatus.Pending ? "warning" :
+                                                                                                                               item.Status == ItemStatus.Claimed ? "info" :
+                                                                                                                               item.Status == ItemStatus.Resolved ? "secondary" : "primary")">
+                        @item.Status
+                    </span>
                         </p>
                         
                         @* ONLY SHOW "Find Matches" FOR LOST ITEMS *@

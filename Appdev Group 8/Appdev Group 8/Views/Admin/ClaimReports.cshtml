@@ -4,10 +4,16 @@
     ViewData["Title"] = "Claim Reports";
 }
 
-<h2>Claim Reports</h2>
+<div class="bg-white rounded-3 shadow-sm p-4 mb-4 mt-5">
+    <div class="d-flex justify-content-between align-items-center">
+        <h2 class="h4 fw-bold mb-0 text-dark">
+            Claim Reports
+        </h2>
 
-<div class="mb-3">
-    <a asp-action="AdminDashboard" asp-controller="Admin" class="btn btn-secondary">Back to Dashboard</a>
+        <a asp-controller="Admin" asp-action="AdminDashboard" class="btn btn-outline-secondary px-4">
+            <i class="bi bi-arrow-left me-1"></i>Back to Dashboard
+        </a>
+    </div>
 </div>
 
 @if (TempData["Success"] != null)
@@ -27,7 +33,7 @@ else
     <div class="table-container">
         <div class="table-responsive">
             <table class="table table-striped">
-                <thead>
+                <thead class="table-dark">
                     <tr>
                         <th>Claim ID</th>
                         <th>Item</th>
@@ -60,7 +66,7 @@ else
                             <td>
                                 @if (!string.IsNullOrEmpty(c.CollectionLocation))
                                 {
-                                    <small>📍 @c.CollectionLocation</small>
+                                    <small>@c.CollectionLocation</small>
                                 }
                                 else
                                 {
@@ -108,9 +114,4 @@ else
         </div>
     </div>
 }
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
+                    

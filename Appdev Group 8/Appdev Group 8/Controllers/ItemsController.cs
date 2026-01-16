@@ -25,8 +25,18 @@ namespace Appdev_Group_8.Controllers
 
         // GET: Views/Items/Dashboard.cshtml
         [HttpGet]
-        public IActionResult Dashboard()
+        public async Task<IActionResult> Dashboard()
         {
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (int.TryParse(userIdClaim, out var userId))
+            {
+                var user = await _db.Users.FindAsync(userId);
+                if (user != null)
+                {
+                    ViewData["UserFullName"] = user.FullName;
+                }
+            }
+
             return View();
         }
 
@@ -127,12 +137,12 @@ namespace Appdev_Group_8.Controllers
             var items = await _db.Items
                 .Where(i => i.UserId == userId)
                 .Include(i => i.Category)
-                .Include(i => i.Claims) // Include claims to check for notifications
+                .Include(i => i.Claims)
                 .OrderByDescending(i => i.DateReported)
                 .ToListAsync();
 
-            // Check for pending notifications (finder gets notified when someone claims their found item)
-            var pendingNotifications = await _db.Claims
+            // Check for FINDER notifications (when someone claims their found item)
+            var finderNotifications = await _db.Claims
                 .Include(c => c.Item)
                 .Where(c => c.Item.UserId == userId 
                     && c.Item.ItemType == ItemType.Found 
@@ -140,20 +150,39 @@ namespace Appdev_Group_8.Controllers
                     && c.ClaimStatus == ClaimStatus.PendingApproval)
                 .ToListAsync();
 
-            if (pendingNotifications.Any())
+            if (finderNotifications.Any())
             {
-                var notificationMessages = pendingNotifications
+                var finderMessages = finderNotifications
                     .Select(c => $"Someone claimed your found item '<strong>{c.Item?.Title}</strong>'. Please bring it to the Security Office for verification.")
                     .ToList();
 
-                TempData["MatchNotifications"] = string.Join("<br/>", notificationMessages);
+                TempData["MatchNotifications"] = string.Join("<br/>", finderMessages);
 
-                // Mark as notified
-                foreach (var claim in pendingNotifications)
+                foreach (var claim in finderNotifications)
                 {
                     claim.FinderNotified = true;
                 }
                 await _db.SaveChangesAsync();
+            }
+
+            // Check for OWNER notifications (when their item is ready for pickup)
+            var ownerNotificationKey = $"OwnerNotification_{userId}";
+            if (TempData.ContainsKey(ownerNotificationKey))
+            {
+                var ownerMessage = TempData[ownerNotificationKey]?.ToString();
+                if (!string.IsNullOrEmpty(ownerMessage))
+                {
+                    // Combine with existing notifications or create new
+                    if (TempData["MatchNotifications"] != null)
+                    {
+                        TempData["MatchNotifications"] = TempData["MatchNotifications"] + "<br/>" + ownerMessage;
+                    }
+                    else
+                    {
+                        TempData["MatchNotifications"] = ownerMessage;
+                    }
+                    TempData.Remove(ownerNotificationKey);
+                }
             }
 
             return View(items);
@@ -328,7 +357,6 @@ namespace Appdev_Group_8.Controllers
             if (sourceItem == null || matchedItem == null)
                 return NotFound();
 
-            // Validate: source must be user's item, matched must be opposite type
             if (sourceItem.UserId != userId)
             {
                 TempData["Error"] = "Invalid operation.";
@@ -348,18 +376,20 @@ namespace Appdev_Group_8.Controllers
                 UserId = userId,
                 ClaimDate = DateTime.UtcNow,
                 ClaimStatus = ClaimStatus.PendingApproval,
-                VerificationNotes = $"Match initiated by {sourceItem.ReportingUser?.FullName} for lost item: {sourceItem.Title}",
-                FinderNotified = false  // Finder hasn't been notified yet
+                VerificationNotes = $"Match initiated by {sourceItem.ReportingUser?.FullName} for lost item: {sourceItem.Title} (ID: {sourceItemId})",
+                FinderNotified = false,
+                OwnerLostItemId = sourceItemId  // Store owner's lost item ID
             };
 
             _db.Claims.Add(claim);
             matchedItem.Status = ItemStatus.UnderReview;
+            sourceItem.Status = ItemStatus.UnderReview;  // Also update owner's lost item
             await _db.SaveChangesAsync();
 
             TempData["ClaimSuccess"] = $"Match confirmed! The finder will be notified to bring the item to Security Office. Admin will verify and contact you.";
             
-            _logger.LogInformation("Match confirmed: User {UserId} matched Lost item {SourceId} with Found item {MatchedId}. Finder {FinderId} will be notified.", 
-                userId, sourceItemId, matchedItemId, matchedItem.UserId);
+            _logger.LogInformation("Match confirmed: User {UserId} matched Lost item {SourceId} with Found item {MatchedId}.", 
+                userId, sourceItemId, matchedItemId);
             
             return RedirectToAction("MyReports");
         }

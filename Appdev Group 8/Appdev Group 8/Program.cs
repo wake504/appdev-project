@@ -54,7 +54,7 @@ using (var scope = app.Services.CreateScope())
         {
             var user = new User
             {
-                FullName = "Lebron James",
+                FullName = "Test User 1",
                 Email = "user01",
                 SchoolId = "123",
                 Role = UserRole.User
@@ -67,7 +67,7 @@ using (var scope = app.Services.CreateScope())
         {
             var user = new User
             {
-                FullName = "Juana Dela Cruz",
+                FullName = "Test User 2",
                 Email = "user02",
                 SchoolId = "123",
                 Role = UserRole.User

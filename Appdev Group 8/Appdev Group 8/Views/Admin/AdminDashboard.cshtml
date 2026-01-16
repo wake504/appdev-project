@@ -4,45 +4,89 @@
     ViewData["Title"] = "Admin Dashboard";
     var totalLost = (ViewData["TotalLost"] as int?) ?? 0;
     var totalFound = (ViewData["TotalFound"] as int?) ?? 0;
+    var totalResolved = (ViewData["TotalResolved"] as int?) ?? 0;
+    var totalPending = (ViewData["TotalPending"] as int?) ?? 0;
 }
 
-<h2>Admin Dashboard</h2>
+<div class="bg-white rounded-3 shadow-sm p-4 pt-2 mb-4 mt-5">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-4">
 
-<div class="mb-3 d-flex gap-3 align-items-center">
-    <div>
-        <a asp-action="ClaimReports" asp-controller="Admin" class="btn btn-outline-primary">Claim Reports</a>
-        <a asp-action="ViewUsers" asp-controller="Admin" class="btn btn-outline-secondary">View Users</a>
-    </div>
+        <div>
+            <h2 class="h4 fw-bold mb-3 text-dark">
+                Admin Dashboard
+            </h2>
+            <div class="d-flex gap-2">
+                <a asp-action="ClaimReports" asp-controller="Admin" class="btn btn-outline-secondary px-4">
+                    Claim Reports
+                </a>
+                <a asp-action="ViewUsers" asp-controller="Admin" class="btn btn-outline-secondary px-4">
+                   View Users
+                </a>
+            </div>
+        </div>
 
-    <div class="ms-auto d-flex gap-3">
-        <div class="p-3 bg-white border rounded text-center">
-            <div class="h6 mb-1">Lost Items</div>
-            <div class="h3">@totalLost</div>
+        <div class="d-flex flex-wrap gap-3">
+            <!-- Lost Items Counter -->
+            <div class="px-4 py-3 bg-light rounded-3 border-0 text-center shadow-sm" style="min-width: 140px;">
+                <div class="text-uppercase small fw-bold text-danger mb-1">
+                   Lost Items
+                </div>
+                <div class="h3 mb-0 fw-bold text-danger">@totalLost</div>
+            </div>
+
+            <!-- Found Items Counter -->
+            <div class="px-4 py-3 bg-light rounded-3 border-0 text-center shadow-sm" style="min-width: 140px;">
+                <div class="text-uppercase small fw-bold text-success mb-1">
+                    Found Items
+                </div>
+                <div class="h3 mb-0 fw-bold text-success">@totalFound</div>
+            </div>
+
+            <!-- Pending Items Counter -->
+            <div class="px-4 py-3 bg-light rounded-3 border-0 text-center shadow-sm" style="min-width: 140px;">
+                <div class="text-uppercase small fw-bold text-warning mb-1">
+                   Pending
+                </div>
+                <div class="h3 mb-0 fw-bold text-warning">@totalPending</div>
+            </div>
+
+            <!-- Resolved Items Counter -->
+            <div class="px-4 py-3 bg-light rounded-3 border-0 text-center shadow-sm" style="min-width: 140px;">
+                <div class="text-uppercase small fw-bold text-secondary mb-1">
+                    Resolved
+                </div>
+                <div class="h3 mb-0 fw-bold text-secondary">@totalResolved</div>
+            </div>
         </div>
-        <div class="p-3 bg-white border rounded text-center">
-            <div class="h6 mb-1">Found Items</div>
-            <div class="h3">@totalFound</div>
-        </div>
+
     </div>
 </div>
 
-<h4 class="mt-4">All Reports</h4>
+<div class="bg-white rounded-3 shadow-sm p-4 mb-4 mt-2">
+    <div class="d-flex justify-content-between align-items-center">
+        <h2 class="h4 fw-bold mb-0 text-dark">
+            All Reports
+        </h2>
+    </div>
+</div>
 
 @if (!(Model?.Any() ?? false))
 {
-    <p class="text-muted">No reports yet.</p>
+    <div class="alert alert-info">
+        <i class="bi bi-inbox me-2"></i>No reports yet.
+    </div>
 }
 else
 {
     <div class="table-container">
         <div class="table-responsive">
-            <table class="table table-striped">
-                <thead>
+            <table class="table table-striped table-hover">
+                <thead class="table-dark">
                     <tr>
                         <th>Title</th>
                         <th>Description</th>
                         <th>Type</th>
-                        <th>Date Found</th>
+                        <th>Date</th>
                         <th>Location</th>
                         <th>Reported By</th>
                         <th>Category</th>
@@ -53,9 +97,13 @@ else
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td>@item.Title</td>
+                            <td><strong>@item.Title</strong></td>
                             <td>@(string.IsNullOrWhiteSpace(item.Description) ? "-" : item.Description)</td>
-                            <td>@item.ItemType</td>
+                            <td>
+                                <span class="badge bg-@(item.ItemType == ItemType.Lost ? "danger" : "success")">
+                                    @item.ItemType
+                                </span>
+                            </td>
                             <td>
                                 @(item.DateLostOrFound.HasValue
                                     ? item.DateLostOrFound.Value.ToLocalTime().ToString("yyyy-MM-dd")
@@ -64,7 +112,13 @@ else
                             <td>@item.Location</td>
                             <td>@item.ReportingUser?.FullName</td>
                             <td>@item.Category?.CategoryName</td>
-                            <td>@item.Status</td>
+                            <td>
+                                <span class="badge bg-@(item.Status == ItemStatus.Pending ? "warning" : 
+                                                       item.Status == ItemStatus.Claimed ? "info" : 
+                                                       item.Status == ItemStatus.Resolved ? "secondary" : "primary")">
+                                    @item.Status
+                                </span>
+                            </td>
                         </tr>
                     }
                 </tbody>

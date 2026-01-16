@@ -4,57 +4,73 @@
     var selectedType = (ViewData["SelectedType"] as string) ?? "Lost";
 }
 
-<h2>Report Lost / Found Item</h2>
+<div class="bg-white rounded-3 shadow-sm p-4 mb-4 mt-5">
+    <div class="d-flex justify-content-between align-items-center">
+        <h2 class="h4 fw-bold mb-0 text-dark">
+           Report Lost or Found Item
+        </h2>
 
-<form asp-action="ReportItem" method="post">
-    @Html.AntiForgeryToken()
-    <div asp-validation-summary="All" class="text-danger mb-3"></div>
-
-    <div class="mb-3">
-        <label class="form-label">Item Name</label>
-        <input name="itemName" class="form-control" required />
+        <a asp-controller="Items" asp-action="Dashboard" class="btn btn-outline-secondary px-4">
+            <i class="bi bi-arrow-left me-1"></i>Back to Dashboard
+        </a>
     </div>
+</div>
 
-    <div class="mb-3">
-        <label class="form-label">Type</label>
-        <select name="itemType" class="form-select" required>
-            <option value="Lost">Lost</option>
-            <option value="Found">Found</option>
-        </select>
-    </div>
+<div class="rounded-3 shadow p-4" style="background-color: rgba(255, 255, 255, 0.85);">
+    <form asp-action="ReportItem" method="post">
+        @Html.AntiForgeryToken()
+        <div asp-validation-summary="All" class="text-danger mb-3"></div>
 
-    <div class="mb-3">
-        <label class="form-label">Category</label>
-        <select name="categoryId" class="form-select" required>
-            <option value="">-- Select category --</option>
-            @foreach (var c in categories)
-            {
-                <option value="@c.CategoryId">@c.CategoryName</option>
-            }
-        </select>
-    </div>
-
-    <div class="mb-3">
-        <label class="form-label">Description</label>
-        <textarea name="description" class="form-control" rows="3" maxlength="1000"></textarea>
-    </div>
-
-    <div class="row g-2">
-        <div class="col-md-6 mb-3">
-            <label class="form-label">Date</label>
-            <input type="date" name="dateLost" class="form-control" />
+        <div class="mb-3">
+            <label class="form-label fw-semibold">Item Name</label>
+            <input name="itemName" class="form-control" required />
         </div>
-        <div class="col-md-6 mb-3">
-            <label class="form-label">Location</label>
-            <input name="lastSeenLocation" class="form-control" />
-        </div>
-    </div>
 
-    <div class="d-flex gap-2">
-        <a asp-action="Dashboard" class="btn btn-secondary">Cancel</a>
-        <button type="submit" class="btn btn-primary">Submit Report</button>
-    </div>
-</form>
+        <div class="mb-3">
+            <label class="form-label fw-semibold">Type</label>
+            <select name="itemType" class="form-select" required>
+                <option value="Lost">Lost</option>
+                <option value="Found">Found</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label fw-semibold">Category</label>
+            <select name="categoryId" class="form-select" required>
+                <option value="">-- Select category --</option>
+                @foreach (var c in categories)
+                {
+                    <option value="@c.CategoryId">@c.CategoryName</option>
+                }
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label fw-semibold">Description</label>
+            <textarea name="description" class="form-control" rows="3" maxlength="1000"></textarea>
+        </div>
+
+        <div class="row g-2">
+            <div class="col-md-6 mb-3">
+                <label class="form-label fw-semibold">Date Lost / Date Found</label>
+                <input type="date" name="dateLost" class="form-control" />
+            </div>
+            <div class="col-md-6 mb-3">
+                <label class="form-label fw-semibold">Location</label>
+                <input name="lastSeenLocation" class="form-control" />
+            </div>
+        </div>
+
+        <div class="d-flex gap-2">
+            <a asp-action="Dashboard" class="btn btn-secondary">
+                Cancel
+            </a>
+            <button type="submit" class="btn btn-primary">
+                Submit Report
+            </button>
+        </div>
+    </form>
+</div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

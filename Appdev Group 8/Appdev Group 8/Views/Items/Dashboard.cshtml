@@ -1,15 +1,24 @@
 @{
     ViewData["Title"] = "Lost&Logged | Dashboard";
+    var userFullName = ViewData["UserFullName"] as string ?? "User";
 }
+
+<div class="bg-white rounded-3 shadow-sm p-4 mb-3 mt-3">
+    <div class="d-flex justify-content-between align-items-center">
+        <h2 class="h4 fw-bold mb-0 text-dark">
+            Hi, @userFullName!
+        </h2>
+    </div>
+</div>
 
 <div class="dashboard-container">
     <div class="container text-center">
         <h1 class="hero-title mb-2">Lost&Logged</h1>
-        <p class="hero-subtitle mb-4">A simple lost and found management system for schools and offices.</p>
+        <p class="hero-subtitle mb-4">The Sintang Paaralan Lost & Found Hub</p>
 
         <div class="d-flex justify-content-center gap-3 mb-5">
-            <a asp-controller="Items" asp-action="ReportItem" class="btn btn-primary px-4">Report Lost Item</a>
-            <a asp-controller="Items" asp-action="MyReports" class="btn btn-secondary px-4">My Reports</a>
+            <a asp-controller="Items" asp-action="ReportItem" class="btn btn-primary px-4">Report Lost / Found Item</a>
+            <a asp-controller="Items" asp-action="MyReports" class="btn btn-outline-secondary px-4">My Reports</a>
             <a asp-controller="Items" asp-action="ViewItems" class="btn btn-outline-secondary px-4">View All Reports</a>
         </div>
 
@@ -18,23 +27,35 @@
         <div class="row justify-content-center g-4">
             <div class="col-md-4">
                 <div class="card step-card h-100 text-center">
-                    <img src="~/images/step-report.png" alt="Report" class="img-fluid mb-2" style="max-height: 60px; object-fit: contain;">
+                    <div class="mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#800000" viewBox="0 0 16 16" class="bi bi-flag">
+                            <path d="M14.778.085A.5.5 0 0 1 15 .5V8a.5.5 0 0 1-.314.464L14.5 8l.186.464-.003.001-.006.003-.023.009a12 12 0 0 1-.397.15c-.264.095-.631.223-1.047.35-.816.252-1.879.523-2.71.523-.847 0-1.548-.28-2.158-.525l-.028-.01C7.68 8.71 7.14 8.5 6.5 8.5c-.7 0-1.638.23-2.437.477A20 20 0 0 0 3 9.342V15.5a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 1 0v.282c.226-.079.496-.17.79-.26C4.606.272 5.67 0 6.5 0c.84 0 1.524.277 2.121.519l.043.018C9.286.788 9.828 1 10.5 1c.7 0 1.638-.23 2.437-.477a20 20 0 0 0 1.349-.476l.019-.007.004-.002h.001M14 1.221c-.22.078-.48.167-.766.255-.81.252-1.872.523-2.734.523-.886 0-1.592-.286-2.203-.534l-.008-.003C7.662 1.21 7.139 1 6.5 1c-.669 0-1.606.229-2.415.478A21 21 0 0 0 3 1.845v6.433c.22-.078.48-.167.766-.255C4.576 7.77 5.638 7.5 6.5 7.5c.847 0 1.548.28 2.158.525l.028.01C9.32 8.29 9.86 8.5 10.5 8.5c.668 0 1.606-.229 2.415-.478A21 21 0 0 0 14 7.655V1.222z" />
+                        </svg>
+                    </div>
                     <h6 class="step-number">1. Report</h6>
-                    <p class="small text-muted">Submit details about the item you lost.</p>
+                    <p class="small text-muted">Submit details about the item you lost / found.</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="card step-card h-100 text-center">
-                    <img src="~/images/step-monitor.png" alt="Monitor" class="img-fluid mb-2" style="max-height: 60px; object-fit: contain;">
+                    <div class="mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#800000" viewBox="0 0 16 16" class="bi bi-display">
+                            <path d="M0 4s0-2 2-2h12s2 0 2 2v6s0 2-2 2h-4q0 1 .25 1.5H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h.75Q6 13 6 12H2s-2 0-2-2zm1.398-.855a.76.76 0 0 0-.254.302A1.5 1.5 0 0 0 1 4.01V10c0 .325.078.502.145.602q.105.156.302.254a1.5 1.5 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.76.76 0 0 0 .254-.302 1.5 1.5 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.76.76 0 0 0-.302-.254A1.5 1.5 0 0 0 13.99 3H2c-.325 0-.502.078-.602.145" />
+                        </svg>
+                    </div>
                     <h6 class="step-number">2. Monitor</h6>
                     <p class="small text-muted">Check the system regularly for updates on your report.</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="card step-card h-100 text-center">
-                    <img src="~/images/step-claim.png" alt="Claim" class="img-fluid mb-2" style="max-height: 60px; object-fit: contain;">
+                    <div class="mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#800000" viewBox="0 0 16 16" class="bi bi-hand-index">
+                            <path d="M6.75 1a.75.75 0 0 1 .75.75V8a.5.5 0 0 0 1 0V5.467l.086-.004c.317-.012.637-.008.816.027.134.027.294.096.448.182.077.042.15.147.15.314V8a.5.5 0 1 0 1 0V6.435l.106-.01c.316-.024.584-.01.708.04.118.046.3.207.486.43.081.096.15.19.2.259V8.5a.5.5 0 0 0 1 0v-1h.342a1 1 0 0 1 .995 1.1l-.271 2.715a2.5 2.5 0 0 1-.317.991l-1.395 2.442a.5.5 0 0 1-.434.252H6.035a.5.5 0 0 1-.416-.223l-1.433-2.15a1.5 1.5 0 0 1-.243-.666l-.345-3.105a.5.5 0 0 1 .399-.546L5 8.11V9a.5.5 0 0 0 1 0V1.75A.75.75 0 0 1 6.75 1M8.5 4.466V1.75a1.75 1.75 0 1 0-3.5 0v5.34l-1.2.24a1.5 1.5 0 0 0-1.196 1.636l.345 3.106a2.5 2.5 0 0 0 .405 1.11l1.433 2.15A1.5 1.5 0 0 0 6.035 16h6.385a1.5 1.5 0 0 0 1.302-.756l1.395-2.441a3.5 3.5 0 0 0 .444-1.389l.271-2.715a2 2 0 0 0-1.99-2.199h-.581a5 5 0 0 0-.195-.248c-.191-.229-.51-.568-.88-.716-.364-.146-.846-.132-1.158-.108l-.132.012a1.26 1.26 0 0 0-.56-.642 2.6 2.6 0 0 0-.738-.288c-.31-.062-.739-.058-1.05-.046zm2.094 2.025" />
+                        </svg>
+                    </div>
                     <h6 class="step-number">3. Claim</h6>
-                    <p class="small text-muted">Visit the office to claim your found item.</p>
+                    <p class="small text-muted">Visit the office to claim your item.</p>
                 </div>
             </div>
         </div>
