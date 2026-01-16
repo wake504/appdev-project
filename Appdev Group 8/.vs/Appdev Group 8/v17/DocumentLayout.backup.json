@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|c:\\users\\markanthonypmadelo\\source\\repos\\appdev-project\\appdev group 8\\appdev group 8\\views\\items\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|solutionrelative:appdev group 8\\views\\items\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|c:\\users\\markanthonypmadelo\\source\\repos\\appdev-project\\appdev group 8\\appdev group 8\\views\\home\\signup.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|solutionrelative:appdev group 8\\views\\home\\signup.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|c:\\users\\markanthonypmadelo\\source\\repos\\appdev-project\\appdev group 8\\appdev group 8\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|solutionrelative:appdev group 8\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|c:\\users\\markanthonypmadelo\\source\\repos\\appdev-project\\appdev group 8\\appdev group 8\\views\\items\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|solutionrelative:appdev group 8\\views\\items\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D15C8D5E-2830-48E5-8CB1-4AAAFD5C3155}|Appdev Group 8\\Appdev Group 8.csproj|c:\\users\\markanthonypmadelo\\source\\repos\\appdev-project\\appdev group 8\\appdev group 8\\controllers\\itemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -85,8 +89,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SignUp.cshtml",
+              "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Views\\Home\\SignUp.cshtml",
+              "RelativeDocumentMoniker": "Appdev Group 8\\Views\\Home\\SignUp.cshtml",
+              "ToolTip": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Views\\Home\\SignUp.cshtml",
+              "RelativeToolTip": "Appdev Group 8\\Views\\Home\\SignUp.cshtml",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-16T13:46:59.763Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -95,7 +112,7 @@
               "RelativeDocumentMoniker": "Appdev Group 8\\Views\\Shared\\_Layout.cshtml",
               "ToolTip": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "Appdev Group 8\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAAA5AAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAC8AAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-01-16T12:48:06.877Z",
               "EditorCaption": ""
@@ -114,7 +131,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "MyReports.cshtml",
               "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Views\\Items\\MyReports.cshtml",
               "RelativeDocumentMoniker": "Appdev Group 8\\Views\\Items\\MyReports.cshtml",
@@ -127,7 +144,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "ReportItem.cshtml",
               "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Views\\Items\\ReportItem.cshtml",
               "RelativeDocumentMoniker": "Appdev Group 8\\Views\\Items\\ReportItem.cshtml",
@@ -140,7 +157,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "ViewItems.cshtml",
               "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Views\\Items\\ViewItems.cshtml",
               "RelativeDocumentMoniker": "Appdev Group 8\\Views\\Items\\ViewItems.cshtml",
@@ -153,20 +170,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Dashboard.cshtml",
               "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Views\\Items\\Dashboard.cshtml",
               "RelativeDocumentMoniker": "Appdev Group 8\\Views\\Items\\Dashboard.cshtml",
               "ToolTip": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Views\\Items\\Dashboard.cshtml",
               "RelativeToolTip": "Appdev Group 8\\Views\\Items\\Dashboard.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA0AAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAA8AAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-01-16T10:21:59.543Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Program.cs",
               "RelativeDocumentMoniker": "Appdev Group 8\\Program.cs",
@@ -179,7 +196,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ItemsController.cs",
               "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Controllers\\ItemsController.cs",
               "RelativeDocumentMoniker": "Appdev Group 8\\Controllers\\ItemsController.cs",
@@ -192,7 +209,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "AdminDashboard.cshtml",
               "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Views\\Admin\\AdminDashboard.cshtml",
               "RelativeDocumentMoniker": "Appdev Group 8\\Views\\Admin\\AdminDashboard.cshtml",
@@ -205,7 +222,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "ClaimReports.cshtml",
               "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Views\\Admin\\ClaimReports.cshtml",
               "RelativeDocumentMoniker": "Appdev Group 8\\Views\\Admin\\ClaimReports.cshtml",
@@ -218,7 +235,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "FindMatches.cshtml",
               "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Views\\Items\\FindMatches.cshtml",
               "RelativeDocumentMoniker": "Appdev Group 8\\Views\\Items\\FindMatches.cshtml",
@@ -231,7 +248,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "ViewUsers.cshtml",
               "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Views\\Admin\\ViewUsers.cshtml",
               "RelativeDocumentMoniker": "Appdev Group 8\\Views\\Admin\\ViewUsers.cshtml",
@@ -244,7 +261,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "AdminController.cs",
               "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Controllers\\AdminController.cs",
               "RelativeDocumentMoniker": "Appdev Group 8\\Controllers\\AdminController.cs",
@@ -257,7 +274,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "20260116100615_UpdatedClaimModel.cs",
               "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Migrations\\20260116100615_UpdatedClaimModel.cs",
               "RelativeDocumentMoniker": "Appdev Group 8\\Migrations\\20260116100615_UpdatedClaimModel.cs",
@@ -270,7 +287,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "CLaim.cs",
               "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Models\\CLaim.cs",
               "RelativeDocumentMoniker": "Appdev Group 8\\Models\\CLaim.cs",
@@ -282,7 +299,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\appsettings.json",
               "RelativeDocumentMoniker": "Appdev Group 8\\appsettings.json",
@@ -294,7 +311,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "20260116012059_Claim Migration.cs",
               "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Migrations\\20260116012059_Claim Migration.cs",
               "RelativeDocumentMoniker": "Appdev Group 8\\Migrations\\20260116012059_Claim Migration.cs",
@@ -306,7 +323,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "Item.cs",
               "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Models\\Item.cs",
               "RelativeDocumentMoniker": "Appdev Group 8\\Models\\Item.cs",
@@ -318,7 +335,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": ".gitignore",
               "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\.gitignore",
               "RelativeDocumentMoniker": "..\\.gitignore",
@@ -330,7 +347,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "20260116011257_Items Migrations.cs",
               "DocumentMoniker": "C:\\Users\\MarkAnthonyPMadelo\\source\\repos\\appdev-project\\Appdev Group 8\\Appdev Group 8\\Migrations\\20260116011257_Items Migrations.cs",
               "RelativeDocumentMoniker": "Appdev Group 8\\Migrations\\20260116011257_Items Migrations.cs",

@@ -2,17 +2,23 @@
     ViewData["Title"] = "Sign Up";
 }
 
-<div class="d-flex align-items-center justify-content-center vh-100">
+<style>
+    body {
+        overflow: hidden;
+    }
+</style>
+
+<div class="d-flex align-items-center justify-content-center" style="height: calc(100vh - 56px - 60px);">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-5 col-lg-4">
 
-                <!-- App Title -->
+               
                 <h3 class="text-center mb-4 fw-bold logo-title">
                     Lost&Logged
                 </h3>
                 
-                <!-- Sign Up Card -->
+                
                 <div class="card border-0 shadow">
                     <div class="card-body p-4">
 
@@ -51,15 +57,9 @@
                         <p class="text-center small text-muted mt-3">
                             Already have an account? <a asp-action="Index" style="color: #800000; text-decoration: none; font-weight: 500;">Login here</a>
                         </p>
-                   
                     </div>
                 </div>
-                
-                <!-- Footer -->
-                <p class="text-center small text-muted mt-3">
-                    © 2025 Lost&Logged. For academic use only.
-                </p>
-
+               
             </div>
         </div>
     </div>

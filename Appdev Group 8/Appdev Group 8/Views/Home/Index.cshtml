@@ -2,7 +2,14 @@
     ViewData["Title"] = "Login";
 }
 
-<div class="d-flex align-items-center justify-content-center vh-100">
+<style>
+    /* Remove scrollbar for login page only */
+    body {
+        overflow: hidden;
+    }
+</style>
+
+<div class="d-flex align-items-center justify-content-center" style="height: calc(100vh - 56px - 60px);">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-5 col-lg-4">
@@ -20,40 +27,33 @@
                             User Login
                         </h6>
 
-                  
-                      
-                                        <h5 class="card-title">Login</h5>
-                                        <form asp-action="Index" method="post">
+                        <h5 class="card-title">Login</h5>
+                        <form asp-action="Index" method="post">
                             @Html.AntiForgeryToken()
                             <input type="hidden" name="returnUrl" value="@ViewData["ReturnUrl"]" />
                             <div asp-validation-summary="All" class="text-danger mb-3"></div>
-                                            <div class="mb-3">
-                                                <label class="form-label">Email or School ID</label>
-                                                <input class="form-control" name="identifier" required />
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">Password</label>
-                                                <input type="password" class="form-control" name="password" required />
-                                            </div>
-                                            <div class="mb-3 form-check">
-                                                <input type="checkbox" class="form-check-input" name="rememberMe" id="rememberMe" />
-                                                <label class="form-check-label" for="rememberMe">Remember me</label>
-                                            </div>
-                                            <button type="submit" class="btn btn-primary w-100">Login</button>
-                                        </form>
+                            <div class="mb-3">
+                                <label class="form-label">Email or School ID</label>
+                                <input class="form-control" name="identifier" required />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Password</label>
+                                <input type="password" class="form-control" name="password" required />
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" name="rememberMe" id="rememberMe" />
+                                <label class="form-check-label" for="rememberMe">Remember me</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Login</button>
+                        </form>
 
-                                        <p class="text-center small text-muted mt-3">
-                                            Don't have an account? <a asp-action="SignUp" style="color: #800000; text-decoration: none; font-weight: 500;">Sign up here</a>
-                                        </p>
-                                   
-         
+                        <p class="text-center small text-muted mt-3">
+                            Don't have an account? <a asp-action="SignUp" style="color: #800000; text-decoration: none; font-weight: 500;">Sign up here</a>
+                        </p>
                     </div>
                 </div>
                 
-                <!-- Footer -->
-                <p class="text-center small text-muted mt-3">
-                    © 2025 Lost&Logged. For academic use only.
-                </p>
+          
 
             </div>
         </div>
